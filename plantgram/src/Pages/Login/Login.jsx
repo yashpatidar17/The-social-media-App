@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
 import "./login.css";
 import { AuthContext } from "../../Context/AuthContextProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 export const Login = () => {
-  const { loginData, setLoginData } = useContext(AuthContext);
+  const { loginData, setLoginData, loginUser } = useContext(AuthContext);
+    console.log(loginData)
+  useEffect(() => {
+    loginUser(loginData.username, loginData.password);
+  }, [loginData.username, loginData.password]);
 
   const loginFieldHandler = (e) => {
-    const {name,value} = e.target;
-    setLoginData((prev)=> ({...prev, [name]:value}))
+    const { name, value } = e.target;
+    setLoginData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const testLoginHandler = () => {
+    setLoginData((prev) => ({
+      ...prev,
+      username: "yashpatidar",
+      password: "gulla123",
+    }));
   };
 
   return (
@@ -22,13 +34,13 @@ export const Login = () => {
           type="text"
           placeholder="Username"
           className="input-field"
-          value={loginData.email}
-          name="email"
+          value={loginData.username}
+          name="username"
           onChange={(e) => loginFieldHandler(e)}
           required
         />
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           className="input-field"
           value={loginData.password}
@@ -39,7 +51,9 @@ export const Login = () => {
       </div>
       <div className="login-button-container">
         <button className="normal-button">Login</button>
-        <button className="normal-button">Test Login</button>
+        <button className="normal-button" onClick={testLoginHandler}>
+          Test Login
+        </button>
       </div>
       <p>
         Create a new account <Link>New Account</Link>
