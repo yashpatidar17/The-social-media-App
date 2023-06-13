@@ -56,7 +56,7 @@ export const Login = () => {
         </button>
       </div>
       <p>
-        Create a new account <Link>New Account</Link>
+        Create a new account <Link to="signup">New Account</Link>
       </p>
     </div>
   );
