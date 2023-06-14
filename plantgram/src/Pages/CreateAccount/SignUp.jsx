@@ -15,7 +15,7 @@ export const SignUp = () => {
         <input type="password" placeholder="Enter Password" className="input-field"/>
       </div>
       <div className="login-button-container">
-        <button className="normal-button">Sign Up</button>
+        <button className="normal-button" >Sign Up</button>
         <button className="normal-button" onClick={()=>navigate("/")}>Log In</button>
       </div>
     </div>
