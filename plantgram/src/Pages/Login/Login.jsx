@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { useContext, useEffect } from "react";
 export const Login = () => {
-  const { loginData, setLoginData, loginUser } = useContext(AuthContext);
-    console.log(loginData)
+  const { loginData, setLoginData, loginUser, token } = useContext(AuthContext);
+  console.log(loginData);
+  const navigate = useNavigate();
   useEffect(() => {
     loginUser(loginData.username, loginData.password);
   }, [loginData.username, loginData.password]);
+
+  
 
   const loginFieldHandler = (e) => {
     const { name, value } = e.target;
@@ -21,6 +24,7 @@ export const Login = () => {
       password: "gulla123",
     }));
   };
+  
 
   return (
     <div className="login-container">
