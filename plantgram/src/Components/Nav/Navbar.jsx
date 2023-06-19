@@ -7,6 +7,7 @@ export const Navbar = ()=>{
     console.log(user);
     return(
         <div className="navbar">
+            <h2>PlantGram</h2>
             <div className="navbar-content">
                <p><Link>Home</Link></p> 
                <p><Link>Explore</Link></p> 
@@ -14,9 +15,7 @@ export const Navbar = ()=>{
                <p><Link>Logout</Link></p> 
             </div>
             <div className="navbar-profile">
-                <img src={user?.profileAvatar} alt="profile pic" className="profilepic"/>
-                <p>{user?.firstName + " " + user?.lastName}</p>
-                <p>@{user?.username}</p>
+                <img src={user?.profileAvatar} alt="profile pic" className="profilepic"/> 
             </div>
         </div>
     )

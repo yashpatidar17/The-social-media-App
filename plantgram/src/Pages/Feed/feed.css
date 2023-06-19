@@ -1,0 +1,11 @@
+.Feed{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.Feed-first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
