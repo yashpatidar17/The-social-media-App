@@ -3,6 +3,7 @@ import { DataContext } from "../../Context/DataContextProvider";
 import axios from "axios";
 import "./suggestion.css"
 import { AuthContext } from "../../Context/AuthContextProvider";
+import { getAllUsers } from "../../services/userService";
 
 export const Suggestion = () => {
   const { dataState, dataDispatch } = useContext(DataContext);
@@ -10,19 +11,7 @@ export const Suggestion = () => {
   console.log(dataState.AllUsers);
     const suggestions = dataState.AllUsers.filter((item)=> item.id !== user.id);
     console.log(suggestions)
-  const getAllUsers = async (dataDispatch) => {
-    try {
-      const {
-        status,
-        data: { users },
-      } = await axios.get("/api/users");
-      if (status === 200 || status === 201) {
-        dataDispatch({ type: "Get_All_Users", payload: users });
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  
 
   useEffect(() => {
     getAllUsers(dataDispatch);
