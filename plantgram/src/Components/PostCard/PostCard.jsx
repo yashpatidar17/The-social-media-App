@@ -5,24 +5,12 @@ import "./postcard.css";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
+import { getPostData } from "../../services/postService";
 export const PostCard = () => {
   const { dataState, dataDispatch } = useContext(DataContext);
 
   const postData = dataState.post;
-  const getPostData = async (dataDispatch) => {
-    try {
-      const {
-        status,
-        data: { posts },
-      } = await axios.get("/api/posts");
-      if (status === 200 || status === 201) {
-        dataDispatch({ type: "Get_All_Post", payload: posts });
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
+ 
   useEffect(() => {
     getPostData(dataDispatch);
   }, []);
