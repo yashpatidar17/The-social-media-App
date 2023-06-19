@@ -1,0 +1,35 @@
+.suggestion-container{
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+}
+.suggestion-first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    padding: 0 10px;
+}
+
+.suggestion-two{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.suggestion-third{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.suggestion-follow{
+    margin-left: 50px;
+
+    margin-right:0;
+    display: flex;
+    justify-items: flex-end;
+}

@@ -5,18 +5,24 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { AuthContextProvider,AuthContext } from "./Context/AuthContextProvider";
+import {
+  AuthContextProvider,
+  AuthContext,
+} from "./Context/AuthContextProvider";
+import { DataContextProvider } from "./Context/DataContextProvider";
 
 // Call make Server
 makeServer();
-export {AuthContext};
+export { AuthContext };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-      <App />
+        <DataContextProvider>
+          <App />
+        </DataContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>

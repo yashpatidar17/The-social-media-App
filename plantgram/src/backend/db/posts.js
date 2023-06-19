@@ -9,28 +9,137 @@ import { formatDate } from "../utils/authUtils";
 export const posts = [
   {
     _id: uuid(),
-    content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    content: "vitness this amazing sunset",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshbalika",
-    createdAt: formatDate(),
+    username: "yashpatidar",
+    fullName: "Yash Patidar",
+    profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
+    postImage:
+      "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
+    createdAt: "2023-06-18",
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Nice!",
+        fullName: "Iron Man",
+        username: "ironman",
+
+        profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment: "Wow!",
+        fullName: "Hulk",
+        username: "hulk",
+        profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
-    content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    content: "frame always matter",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
-    createdAt: formatDate(),
+    username: "ironman",
+    fullName: "Iron Man",
+    profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
+    postImage:
+      "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
+    createdAt: "2023-06-19",
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Nice!",
+        fullName: "Yash Patidar",
+        username: "yashpatidar",
+
+        profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment: "Wow!",
+        fullName: "Hulk",
+        username: "hulk",
+        profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    content: "Broken Glider",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "yashpatidar",
+    fullName: "Yash Patidar",
+    profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
+    postImage:
+      "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
+    createdAt: "2023-06-16",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Amazing Man",
+        fullName: "Iron Man",
+        username: "ironman",
+
+        profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment: "Woah lit!",
+        fullName: "Hulk",
+        username: "hulk",
+        profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
 ];

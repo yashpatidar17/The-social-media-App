@@ -1,3 +1,5 @@
+import { PostCard } from "../PostCard/PostCard"
+
 export const FeedCard = ()=>{
     return(
         <div>
@@ -6,7 +8,8 @@ export const FeedCard = ()=>{
                 
             </div>
             <div className="post-cards">
-
+            
+                <PostCard/>
             </div>
         </div>
     )

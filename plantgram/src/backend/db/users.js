@@ -22,18 +22,18 @@ export const users = [
         username: "ironman",
         profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
       },
-      {
-        _id: uuid(),
-        fullName: "Hulk",
-        username: "hulk",
-        profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
-      },
-      {
-        _id: uuid(),
-        fullName: "Wanda Maximoff",
-        username: "wanda",
-        profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
-      },
+      // {
+      //   _id: uuid(),
+      //   fullName: "Hulk",
+      //   username: "hulk",
+      //   profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+      // },
+      // {
+      //   _id: uuid(),
+      //   fullName: "Wanda Maximoff",
+      //   username: "wanda",
+      //   profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
+      // },
     ],
     followers: [
       {
@@ -44,7 +44,7 @@ export const users = [
       },
       {
         _id: uuid(),
-        fullName: "hulk",
+        fullName: "Bruce Banner",
         username: "hulk",
         profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
       },
@@ -76,7 +76,7 @@ export const users = [
       },
       {
         _id: uuid(),
-        fullName: "Hulk",
+        fullName: "Bruce Banner",
         username: "hulk",
         profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
       },
@@ -90,7 +90,7 @@ export const users = [
       },
       {
         _id: uuid(),
-        fullName: "hulk",
+        fullName: "Bruce Banner",
         username: "hulk",
         profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
       },
@@ -130,10 +130,39 @@ export const users = [
       },
       {
         _id: uuid(),
-        fullName: "hulk",
+        fullName: "Bruce Banner",
         username: "hulk",
         profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
       },
+    ],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Bruce",
+    lastName: "Banner",
+    username: "hulk",
+    password: "4000",
+    bio: "Turns into green when i am angry",
+    website: "https://github.com/yashpatidar17/The-social-media-App",
+    profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+    following: [
+      {
+        _id: uuid(),
+        fullName: "Yash Patidar",
+        username: "yashpatidar",
+        profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
+      }
+    ],
+    followers: [
+      {
+        _id: uuid(),
+        fullName: "Yash Patidar",
+        username: "yashpatidar",
+        profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
+      },
+      
     ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
