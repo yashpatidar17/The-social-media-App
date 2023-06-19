@@ -7,5 +7,8 @@
 .Feed-first{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin: 0 auto;
+    gap: 50px;
+    margin-top: 20px;
 }
+
