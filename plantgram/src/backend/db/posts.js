@@ -19,7 +19,7 @@ export const posts = [
     fullName: "Yash Patidar",
     profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
     postImage:
-      "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
+      "https://i.postimg.cc/zBbXZMLY/IMG20230611192722-01.jpg",
     createdAt: "2023-06-18",
     updatedAt: formatDate(),
     comments: [
@@ -64,7 +64,7 @@ export const posts = [
     fullName: "Iron Man",
     profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
     postImage:
-      "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
+      "https://i.postimg.cc/fRFCCShW/IMG-20200215-183801-01.jpg",
     createdAt: "2023-06-19",
     updatedAt: formatDate(),
     comments: [
@@ -109,7 +109,7 @@ export const posts = [
     fullName: "Yash Patidar",
     profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
     postImage:
-      "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
+      "https://i.postimg.cc/52HqX9Qh/IMG-20200317-182704-01.jpg",
     createdAt: "2023-06-16",
     updatedAt: formatDate(),
     comments: [

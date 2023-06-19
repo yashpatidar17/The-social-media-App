@@ -41,7 +41,7 @@ export const PostCard = () => {
           
           <div className="icon-tray">
             <FavoriteBorderRoundedIcon />
-            <ChatBubbleOutlineRoundedIcon />
+            <ChatBubbleOutlineRoundedIcon />{post?.comments.length}
             <BookmarkBorderRoundedIcon />
           </div>
         </div>
