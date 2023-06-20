@@ -6,6 +6,9 @@ export const dataReducer = (state,action) =>{
         case "Get_All_Users":{
             return {...state,AllUsers : [...action.payload]}
         }
+        case "BookMark":{
+            return {...state,bookmark : [...action.payload]}
+        }
         default:{
             return state;
         }
