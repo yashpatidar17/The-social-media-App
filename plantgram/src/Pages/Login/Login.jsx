@@ -16,6 +16,11 @@ export const Login = () => {
     const { name, value } = e.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
+  useEffect(() => {
+    if (token) {
+      navigate("/feed", { replace: true });
+    }
+  }, [token, navigate]);
 
   const testLoginHandler = () => {
     setLoginData((prev) => ({

@@ -1,10 +1,10 @@
 import { Navbar } from "../../Components/Nav/Navbar"
 
-export const BookMark = ()=>{
+export const Explore = ()=>{
     return(
         <div>
-        <Navbar/>
-            <p>Hello</p>
+            <Navbar/>
+            <p>Explore</p>
         </div>
     )
 }

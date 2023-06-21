@@ -34,11 +34,7 @@ export const AuthContextProvider = ({ children }) => {
       }
     }
   };
-  useEffect(() => {
-    if (token) {
-      navigate("/feed", { replace: true });
-    }
-  }, [token, navigate]);
+  
   return (
     <AuthContext.Provider value={{ loginData, setLoginData,loginUser,token,user }}>
       {children}
