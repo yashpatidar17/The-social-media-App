@@ -26,7 +26,7 @@ export const PostCard = () => {
   useEffect(() => {
     getPostData(dataDispatch);
   }, []);
-  // for commit
+
   return (
     <div>
       <input placeholder="post something here" />
@@ -63,7 +63,7 @@ export const PostCard = () => {
               <span>{post.likes.likeCount}</span>
             </div>
             <ChatBubbleOutlineRoundedIcon />
-              
+
             <div>
               {bookmarkByUser(post) ? (
                 <BookmarkRoundedIcon onClick={()=>deleteRemoveHandler(post, dataDispatch, token)}/>
