@@ -50,29 +50,7 @@ export const PostCard = () => {
           </div>
 
           <div className="icon-tray">
-            <div className="icon-container">
-              {likedByUser(post, user) ? (
-                <FavoriteRoundedIcon
-                  onClick={() => dislikeHAndler(post, dataDispatch, token)}
-                />
-              ) : (
-                <FavoriteBorderRoundedIcon
-                  onClick={() => likeHandler(post, dataDispatch, token)}
-                />
-              )}
-              <span>{post.likes.likeCount}</span>
-            </div>
-            <ChatBubbleOutlineRoundedIcon />
 
-            <div>
-              {bookmarkByUser(post) ? (
-                <BookmarkRoundedIcon onClick={()=>deleteRemoveHandler(post, dataDispatch, token)}/>
-              ) : (
-                <BookmarkBorderRoundedIcon
-                  onClick={() => bookMarkHandler(post, dataDispatch, token)}
-                />
-              )}
-            </div>
           </div>
         </div>
       ))}
