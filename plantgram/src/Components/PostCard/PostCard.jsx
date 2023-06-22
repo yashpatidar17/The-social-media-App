@@ -63,7 +63,7 @@ export const PostCard = () => {
               <span>{post.likes.likeCount}</span>
             </div>
             <ChatBubbleOutlineRoundedIcon />
-              
+
             <div>
               {bookmarkByUser(post) ? (
                 <BookmarkRoundedIcon onClick={()=>deleteRemoveHandler(post, dataDispatch, token)}/>

@@ -1,74 +1,73 @@
-.icon-tray{
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-/* fjsldfj */
-.postCard {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 500px;
-  background-color: #ffffff;
-  border: 1px solid #dbdbdb;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.profilepic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 10px;
-}
-
-.postCard p {
-  margin: 0;
-}
-
-.fullName {
-  font-size: 14px;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.createdAt {
-  font-size: 12px;
-  color: #999999;
-  margin-left: 10px;
-}
-
-.username {
-  font-size: 12px;
-  color: #999999;
-  margin-left: 10px;
-
-}
-
-.context-box{
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-}
-
-
-.contentpic {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin: 10px 0;
+  .icon-tray{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  .postCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 500px;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
   
-}
+  .profilepic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+  }
+  
+  .postCard p {
+    margin: 0;
+  }
+  
+  .fullName {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .createdAt {
+    font-size: 12px;
+    color: #999999;
+    margin-left: 10px;
+  }
+  
+  .username {
+    font-size: 12px;
+    color: #999999;
+    margin-left: 10px;
 
-.postCard-first{
-  display: flex;
-  align-items: center
-}
+  }
+  
+  .context-box{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+ 
+  
+  .contentpic {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px 0;
+    
+  }
+  
+  .postCard-first{
+    display: flex;
+    align-items: center
+  }
 
-.icon-container{
-  display: flex;
-}
+  .icon-container{
+    display: flex;
+  }
