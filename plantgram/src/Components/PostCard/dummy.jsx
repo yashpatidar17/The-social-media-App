@@ -26,7 +26,7 @@ export const PostCard = () => {
   useEffect(() => {
     getPostData(dataDispatch);
   }, []);
-  // for commit
+
   return (
     <div>
       <input placeholder="post something here" />
