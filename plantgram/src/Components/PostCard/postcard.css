@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
   .postCard {
     display: flex;
@@ -45,20 +47,27 @@
 
   }
   
-  .content {
+  .context-box{
+    display: flex;
+    flex-direction: column;
     margin: 10px;
   }
+ 
   
   .contentpic {
-    width: 470px;
+    width: 100%;
     max-height: 400px;
     object-fit: cover;
     border-radius: 10px;
-    margin: 10px 10px;
+    margin: 10px 0;
     
   }
   
   .postCard-first{
     display: flex;
     align-items: center
+  }
+
+  .icon-container{
+    display: flex;
   }

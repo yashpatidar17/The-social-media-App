@@ -8,6 +8,7 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import { getPostData } from "../../services/postService";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 export const PostCard = () => {
   const {
     dataState,
@@ -15,10 +16,13 @@ export const PostCard = () => {
     bookMarkHandler,
     likeHandler,
     dislikeHAndler,
+    likedByUser,
+    bookmarkByUser,
+    deleteRemoveHandler
   } = useContext(DataContext);
-  const { token } = useContext(AuthContext);
+  const { token, user } = useContext(AuthContext);
   const postData = dataState.post;
-
+  
   useEffect(() => {
     getPostData(dataDispatch);
   }, []);
@@ -40,24 +44,35 @@ export const PostCard = () => {
               <p className="username">@{post.username}</p>
             </div>
           </div>
-          <div>
+          <div className="context-box">
             <p className="content">{post.content}</p>
             <img src={post.postImage} alt="content" className="contentpic" />
           </div>
 
           <div className="icon-tray">
+            <div className="icon-container">
+              {likedByUser(post, user) ? (
+                <FavoriteRoundedIcon
+                  onClick={() => dislikeHAndler(post, dataDispatch, token)}
+                />
+              ) : (
+                <FavoriteBorderRoundedIcon
+                  onClick={() => likeHandler(post, dataDispatch, token)}
+                />
+              )}
+              <span>{post.likes.likeCount}</span>
+            </div>
             <ChatBubbleOutlineRoundedIcon />
 
-            <FavoriteBorderRoundedIcon
-              onClick={
-                dataState.liked
-                  ? () => dislikeHAndler(post, dataDispatch, token)
-                  : () => likeHandler(post, dataDispatch, token)
-              }
-            />
-            {post.likes.likeCount}
-
-            <BookmarkBorderRoundedIcon onClick={() => bookMarkHandler(post)} />
+            <div>
+              {bookmarkByUser(post) ? (
+                <BookmarkRoundedIcon onClick={()=>deleteRemoveHandler(post, dataDispatch, token)}/>
+              ) : (
+                <BookmarkBorderRoundedIcon
+                  onClick={() => bookMarkHandler(post, dataDispatch, token)}
+                />
+              )}
+            </div>
           </div>
         </div>
       ))}

@@ -9,15 +9,12 @@ export const dataReducer = (state,action) =>{
         case "BookMark":{
             return {...state,bookmark : [...action.payload]}
         }
-        case "Toggle_Like": {
-            const updatedPost = action.payload;
-            const updatedPostIndex = state.post.findIndex(
-              (post) => post._id === updatedPost._id
-            );
-            const updatedPosts = [...state.post];
-            updatedPosts[updatedPostIndex] = updatedPost;
-            return { ...state, post: updatedPosts };
-          }
+        case "liked":{
+            return{...state,liked:action.payload}
+        }
+        case "Remove-BookMark":{
+            return{...state,bookmark : [...action.payload]}
+        }
         default:{
             return state;
         }

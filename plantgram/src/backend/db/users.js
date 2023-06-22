@@ -13,6 +13,7 @@ export const users = [
     username: "yashpatidar",
     password: "gulla123",
     bio: "learning React",
+    bookmarks: [],
     website: "https://github.com/yashpatidar17/The-social-media-App",
     profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
     following: [
@@ -65,6 +66,7 @@ export const users = [
     username: "ironman",
     password: "3000",
     bio: "Resting in Peace",
+    bookmarks: [],
     website: "https://github.com/yashpatidar17/The-social-media-App",
     profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
     following: [
@@ -111,6 +113,7 @@ export const users = [
     username: "wanda",
     password: "2000",
     bio: "Depends on mood",
+    bookmarks: [],
     website: "https://github.com/yashpatidar17/The-social-media-App",
     profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
     following: [
@@ -145,6 +148,7 @@ export const users = [
     username: "hulk",
     password: "4000",
     bio: "Turns into green when i am angry",
+    bookmarks: [],
     website: "https://github.com/yashpatidar17/The-social-media-App",
     profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
     following: [
