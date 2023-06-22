@@ -8,9 +8,9 @@ import { getAllUsers } from "../../services/userService";
 export const Suggestion = () => {
   const { dataState, dataDispatch } = useContext(DataContext);
   const {user} = useContext(AuthContext)
-  console.log(dataState.AllUsers);
+  
     const suggestions = dataState.AllUsers.filter((item)=> item.id !== user.id);
-    console.log(suggestions)
+   
   
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Suggestion = () => {
     <div className="suggestion-container">
       <input placeholder="serach users here" />
       {suggestions.map((item)=>(
-        <div className="suggestion-first">
+        <div className="suggestion-first" key={item._id}>
         
         <div className="suggestion-two">
         <img src={item?.profileAvatar} alt="profile" className="profilepic"/>

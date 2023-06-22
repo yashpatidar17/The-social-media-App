@@ -34,13 +34,18 @@ export const AuthContextProvider = ({ children }) => {
       }
     }
   };
-  useEffect(() => {
-    if (token) {
-      navigate("/feed", { replace: true });
-    }
-  }, [token, navigate]);
+
+  const logoutHandler = ()=>{
+    localStorage.clear();
+    setToken("");
+    navigate("/",{replace : true});
+    setTimeout(()=>{
+      window.location.reload();
+    },100)
+  }
+  
   return (
-    <AuthContext.Provider value={{ loginData, setLoginData,loginUser,token,user }}>
+    <AuthContext.Provider value={{ loginData, setLoginData,loginUser,token,user,logoutHandler }}>
       {children}
     </AuthContext.Provider>
   );
