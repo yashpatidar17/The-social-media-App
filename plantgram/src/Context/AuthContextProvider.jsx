@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [loginData, setLoginData] = useState({ username: "", password: "" });
-  const localStorageToken = JSON.parse(localStorage.getItem("login"));
+  const localStorageToken = JSON.parse(localStorage.getItem("token"));
   const [token, setToken] = useState(localStorageToken?.token);
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(localStorageUser?.user);
@@ -22,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
         } = await loginService(username, password);
         if (status === 200 || status === 201) {
           localStorage.setItem(
-            "login",
+            "token",
             JSON.stringify({ token: encodedToken })
           );
           setToken(encodedToken);

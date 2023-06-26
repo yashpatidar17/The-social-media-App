@@ -10,8 +10,6 @@ export const Login = () => {
     loginUser(loginData.username, loginData.password);
   }, [loginData.username, loginData.password]);
 
-  
-
   const loginFieldHandler = (e) => {
     const { name, value } = e.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));
@@ -29,7 +27,6 @@ export const Login = () => {
       password: "gulla123",
     }));
   };
-  
 
   return (
     <div className="login-container">
