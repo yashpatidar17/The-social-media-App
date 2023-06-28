@@ -65,16 +65,16 @@ export const postBookMark = async (post, dataDispatch, token) => {
         headers: { authorization: token },
       }
     );
-    if(status === 200 || status ===201){
-      dataDispatch({type:"BookMark",payload:bookmarks})
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "BookMark", payload: bookmarks });
     }
   } catch (e) {
     console.log(e, "error from bookmark post call");
   }
 };
 
-export const deleteBookmark = async(post, dataDispatch, token,)=>{
-  try{
+export const deleteBookmark = async (post, dataDispatch, token) => {
+  try {
     const {
       status,
       data: { bookmarks },
@@ -85,10 +85,38 @@ export const deleteBookmark = async(post, dataDispatch, token,)=>{
         headers: { authorization: token },
       }
     );
-    if(status === 200 || status ===201){
-      dataDispatch({type:"Remove-BookMark",payload:bookmarks})
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "Remove-BookMark", payload: bookmarks });
     }
-  }catch(e){
+  } catch (e) {
     console.log(e, "error from delete bookmark call");
   }
-}
+};
+
+export const followReq = async (item, dataDispatch, token) => {
+  try {
+    const {
+      status,
+      data: { user,followUser },
+    } = await axios.post(
+      `/api/users/follow/${item._id}`,
+      {},
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (status === 200 || status === 201) {
+      console.log(user,"from follow button",followUser);
+      dataDispatch({ type: "add_follower_inother", payload: {user,followUser}});
+      dataDispatch({
+        type: "Add_Following",
+        payload: {user,followUser},
+      });
+      
+    }
+  } catch (e) {
+    console.log(e, "error from follow request");
+  }
+};

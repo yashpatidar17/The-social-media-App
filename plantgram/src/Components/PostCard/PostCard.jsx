@@ -9,6 +9,7 @@ import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import { getPostData } from "../../services/postService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
+import { Link } from "react-router-dom";
 export const PostCard = () => {
   const {
     dataState,
@@ -46,7 +47,9 @@ export const PostCard = () => {
           </div>
           <div className="context-box">
             <p className="content">{post.content}</p>
+            <Link to={`/post/${post._id}`}>
             <img src={post.postImage} alt="content" className="contentpic" />
+            </Link>
           </div>
 
           <div className="icon-tray">
@@ -62,7 +65,7 @@ export const PostCard = () => {
               )}
               <span>{post.likes.likeCount}</span>
             </div>
-            <ChatBubbleOutlineRoundedIcon />
+            <Link to={`/post/${post._id}`}><ChatBubbleOutlineRoundedIcon /></Link>
 
             <div>
               {bookmarkByUser(post) ? (

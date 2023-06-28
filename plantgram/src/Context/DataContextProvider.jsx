@@ -7,7 +7,7 @@ const DataInitialState = { post: [], AllUsers: [], bookmark: [] ,liked:false};
 export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, DataInitialState);
- //console.log(dataState.post,"post")
+ console.log(dataState.AllUsers,"user")
   const {user} = useContext(AuthContext);
   const bookMarkHandler = (post,dataDispatch,token) => {
     
