@@ -1,0 +1,31 @@
+.post-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.reply-container{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+.comment-container{
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+    justify-content: flex-start;
+}
+
+.comment-container-first{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+.comment-container-third{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap: 5px;
+}
