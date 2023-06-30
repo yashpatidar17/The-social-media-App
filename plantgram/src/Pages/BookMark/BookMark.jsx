@@ -68,7 +68,6 @@ export const BookMark = () => {
                   
                 </div>
 
-                <ChatBubbleOutlineRoundedIcon />
                 <div>
                   {bookmarkByUser(post) ? (
                     <BookmarkRoundedIcon

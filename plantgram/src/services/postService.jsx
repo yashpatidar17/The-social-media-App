@@ -97,7 +97,7 @@ export const followReq = async (item, dataDispatch, token) => {
   try {
     const {
       status,
-      data: { user,followUser },
+      data: { user, followUser },
     } = await axios.post(
       `/api/users/follow/${item._id}`,
       {},
@@ -108,15 +108,70 @@ export const followReq = async (item, dataDispatch, token) => {
       }
     );
     if (status === 200 || status === 201) {
-      console.log(user,"from follow button",followUser);
-      dataDispatch({ type: "add_follower_inother", payload: {user,followUser}});
+      console.log(user, "from follow button", followUser);
+      dataDispatch({
+        type: "add_follower_inother",
+        payload: { user, followUser },
+      });
       dataDispatch({
         type: "Add_Following",
-        payload: {user,followUser},
+        payload: { user, followUser },
       });
-      
     }
   } catch (e) {
     console.log(e, "error from follow request");
   }
 };
+
+// export const addComment = async (post, comment,dataDispatch,token) => {
+  
+//   try {
+//     const {
+//       status,
+//       data: { posts },
+//     } = await axios.post(
+//       `/api/comments/add/${post._id}`,
+//       { comment },
+//       { headers: { authorization: token } }
+//     );
+//     if (status === 200 && status === 201) {
+//       dataDispatch({ type: "Add_Comment", payload: posts });
+//     }
+//     console.log(posts);
+//   } catch (e) {
+//     console.log(e, "error from add comment service call");
+//   }
+// };
+
+// export const addCommentHandle = async (
+//   postId,
+//   commentData,
+//   socialToken,
+//   dataDispatch
+// ) => {
+
+
+//   try {
+//     const {
+//       status,
+//       data: { posts },
+//     } = await axios.post(
+//       `/api/comments/add/${postId}`,
+//       {
+//         commentData,
+//       },
+//       {
+//         headers: {
+//           authorization: socialToken,
+//         },
+//       }
+//     );
+
+//     if (status === 200 || status === 201) {
+//       // console.log(posts);
+//       dataDispatch({ type: "POST_OPERATIONS", payload: posts });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
