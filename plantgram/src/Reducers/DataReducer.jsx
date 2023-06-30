@@ -15,6 +15,10 @@ export const dataReducer = (state, action) => {
     case "Remove-BookMark": {
       return { ...state, bookmark: [...action.payload] };
     }
+
+    case "Add_Comment": {
+      return { ...state, post: [...action.payload] };
+    }
     case "add_follower_inother": {
       return {
         ...state,

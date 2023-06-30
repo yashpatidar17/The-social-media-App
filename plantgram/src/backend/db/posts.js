@@ -142,4 +142,49 @@ export const posts = [
       },
     ],
   },
+  {
+    _id: uuid(),
+    content: "Broken Glider",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "wanda",
+    fullName: "Wanda Maximoff",
+    profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
+    postImage:
+      "https://i.postimg.cc/52HqX9Qh/IMG-20200317-182704-01.jpg",
+    createdAt: "2023-06-18",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Amazing Wand",
+        fullName: "Iron Man",
+        username: "ironman",
+
+        profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment: "Woah lit!",
+        fullName: "Hulk",
+        username: "hulk",
+        profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
 ];

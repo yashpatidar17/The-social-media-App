@@ -4,7 +4,6 @@ import axios from "axios";
 import "./postcard.css";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
-import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import { getPostData } from "../../services/postService";
 import { AuthContext } from "../../Context/AuthContextProvider";
@@ -65,7 +64,7 @@ export const PostCard = () => {
               )}
               <span>{post.likes.likeCount}</span>
             </div>
-            <Link to={`/post/${post._id}`}><ChatBubbleOutlineRoundedIcon /></Link>
+            
 
             <div>
               {bookmarkByUser(post) ? (

@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import "./post.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../../Context/DataContextProvider";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
@@ -9,8 +9,10 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 import { Navbar } from "../../Components/Nav/Navbar";
+import { addComment } from "../../services/postService";
 
 export const Post = () => {
+  // const [comment, setComment] = useState("");
   const {
     dataState,
     bookmarkByUser,
@@ -26,6 +28,8 @@ export const Post = () => {
 
   const selectedPost = dataState?.post?.find((item) => item._id === postID);
   console.log(selectedPost, "fbaud", user);
+
+ 
   return (
     <div>
       <Navbar />
@@ -53,11 +57,6 @@ export const Post = () => {
               className="contentpic"
             />
           </div>
-          <div>
-            <hr />
-            <p>{selectedPost.comments.length} comments</p>
-            <hr />
-          </div>
           <div className="icon-tray">
             <div className="icon-container">
               {likedByUser(selectedPost, user) ? (
@@ -73,7 +72,7 @@ export const Post = () => {
               )}
               <span>{selectedPost.likes.likeCount}</span>
             </div>
-            <ChatBubbleOutlineRoundedIcon />
+            
 
             <div>
               {bookmarkByUser(selectedPost) ? (
@@ -93,38 +92,7 @@ export const Post = () => {
           </div>
 
           <div>
-            <div className="reply-container">
-              <img
-                src={user?.profileAvatar}
-                alt="profile"
-                className="profilepic"
-              />
-              <input placeholder="reply here" />
-            </div>
-
-            <div className="comment-container">
-            <hr style={{height: "2px"}}/>
-              {selectedPost?.comments.map((item) => (
-                <div className="comment-container-first">
-            
-                  <img
-                    src={item?.profileAvatar}
-                    alt="profile"
-                    className="profilepic"
-                  />
-                  <div className="comment-container-second">
-                    <div className="comment-container-third">
-                      <p>{item?.fullName }</p> 
-                      <p>@{item?.username}</p>
-                      <p>{item?.createdAt}</p>
-                    </div>
-                    <div className="comment-container-fourth">
-                      <p>{item?.comment}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          
           </div>
         </div>
       </div>
