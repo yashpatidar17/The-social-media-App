@@ -6,6 +6,9 @@ export const dataReducer = (state, action) => {
     case "Get_All_Users": {
       return { ...state, AllUsers: [...action.payload] };
     }
+    case "Loged_in_user": {
+      return { ...state, loginUser: action.payload };
+    }
     case "BookMark": {
       return { ...state, bookmark: [...action.payload] };
     }
@@ -16,7 +19,7 @@ export const dataReducer = (state, action) => {
       return { ...state, bookmark: [...action.payload] };
     }
 
-    case "Add_Comment": {
+    case "Post_Operations": {
       return { ...state, post: [...action.payload] };
     }
     case "add_follower_inother": {

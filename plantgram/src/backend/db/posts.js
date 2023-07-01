@@ -11,7 +11,7 @@ export const posts = [
     _id: uuid(),
     content: "Witness this amazing sunset",
     likes: {
-      likeCount: 0,
+      likeCount: 25,
       likedBy: [],
       dislikedBy: [],
     },
@@ -54,9 +54,54 @@ export const posts = [
   },
   {
     _id: uuid(),
+    content: "Witness this amazing sunset",
+    likes: {
+      likeCount: 20,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "yashpatidar",
+    fullName: "Yash Patidar",
+    profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
+    postImage:
+      "https://i.postimg.cc/zBbXZMLY/IMG20230611192722-01.jpg",
+    createdAt: "2023-04-18",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Nice!",
+        fullName: "Iron Man",
+        username: "ironman",
+
+        profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment: "Wow!",
+        fullName: "Hulk",
+        username: "hulk",
+        profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: uuid(),
     content: "frame always matter",
     likes: {
-      likeCount: 0,
+      likeCount: 18,
       likedBy: [],
       dislikedBy: [],
     },
@@ -65,7 +110,7 @@ export const posts = [
     profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
     postImage:
       "https://i.postimg.cc/fRFCCShW/IMG-20200215-183801-01.jpg",
-    createdAt: "2023-06-19",
+    createdAt: "2023-06-20",
     updatedAt: formatDate(),
     comments: [
       {
@@ -101,7 +146,7 @@ export const posts = [
     _id: uuid(),
     content: "Broken Glider",
     likes: {
-      likeCount: 0,
+      likeCount: 15,
       likedBy: [],
       dislikedBy: [],
     },
@@ -146,7 +191,7 @@ export const posts = [
     _id: uuid(),
     content: "Broken Glider",
     likes: {
-      likeCount: 0,
+      likeCount: 28,
       likedBy: [],
       dislikedBy: [],
     },
@@ -155,7 +200,7 @@ export const posts = [
     profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
     postImage:
       "https://i.postimg.cc/52HqX9Qh/IMG-20200317-182704-01.jpg",
-    createdAt: "2023-06-18",
+    createdAt: "2023-06-21",
     updatedAt: formatDate(),
     comments: [
       {
@@ -178,6 +223,38 @@ export const posts = [
         fullName: "Hulk",
         username: "hulk",
         profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    content: "Broken Glider",
+    likes: {
+      likeCount: 42,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "hulk",
+    fullName: "Hulk",
+    profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
+    postImage:
+      "https://i.postimg.cc/52HqX9Qh/IMG-20200317-182704-01.jpg",
+    createdAt: "2023-06-22",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Amazing Wanda",
+        fullName: "Iron Man",
+        username: "ironman",
+
+        profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         votes: {

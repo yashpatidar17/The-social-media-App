@@ -13,3 +13,15 @@ export const getAllUsers = async (dataDispatch) => {
       console.log(e);
     }
   };
+
+
+  // Not Working
+  export const getLoggedInUser = async (user) => {
+
+    try {
+      const resp = await axios.get(`/api/users/${user._id}`);
+      console.log("resp", resp);
+    } catch (error) {
+      console.log(error,"error from getting user");
+    }
+  };
