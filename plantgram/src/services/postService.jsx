@@ -123,55 +123,26 @@ export const followReq = async (item, dataDispatch, token) => {
   }
 };
 
-// export const addComment = async (post, comment,dataDispatch,token) => {
-  
-//   try {
-//     const {
-//       status,
-//       data: { posts },
-//     } = await axios.post(
-//       `/api/comments/add/${post._id}`,
-//       { comment },
-//       { headers: { authorization: token } }
-//     );
-//     if (status === 200 && status === 201) {
-//       dataDispatch({ type: "Add_Comment", payload: posts });
-//     }
-//     console.log(posts);
-//   } catch (e) {
-//     console.log(e, "error from add comment service call");
-//   }
-// };
-
-// export const addCommentHandle = async (
-//   postId,
-//   commentData,
-//   socialToken,
-//   dataDispatch
-// ) => {
-
-
-//   try {
-//     const {
-//       status,
-//       data: { posts },
-//     } = await axios.post(
-//       `/api/comments/add/${postId}`,
-//       {
-//         commentData,
-//       },
-//       {
-//         headers: {
-//           authorization: socialToken,
-//         },
-//       }
-//     );
-
-//     if (status === 200 || status === 201) {
-//       // console.log(posts);
-//       dataDispatch({ type: "POST_OPERATIONS", payload: posts });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const createPostService = async (
+  postData, dataDispatch, token
+) => {
+  try {
+    const {
+      status,
+      data: { posts },
+    } = await axios.post(
+      `/api/posts/`,
+      { postData },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "Post_Operations", payload: posts });
+    }
+  } catch (error) {
+    console.log(error,"from create post data");
+  }
+};

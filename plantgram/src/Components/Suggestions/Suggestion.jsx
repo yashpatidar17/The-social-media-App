@@ -10,8 +10,8 @@ export const Suggestion = () => {
   const { dataState, dataDispatch } = useContext(DataContext);
   const { token } = useContext(AuthContext);
   const { user } = useContext(AuthContext);
-
-  const suggestions = dataState.AllUsers.filter((item) => item.id !== user.id);
+  
+  const suggestions = dataState?.AllUsers?.filter((item) => item?.username !== user?.username );
   const followUserHandler = (item, dataDispatch, token) => {
     followReq(item, dataDispatch, token);
   };

@@ -23,18 +23,6 @@ export const users = [
         username: "ironman",
         profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
       },
-      // {
-      //   _id: uuid(),
-      //   fullName: "Hulk",
-      //   username: "hulk",
-      //   profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
-      // },
-      // {
-      //   _id: uuid(),
-      //   fullName: "Wanda Maximoff",
-      //   username: "wanda",
-      //   profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
-      // },
     ],
     followers: [
       {

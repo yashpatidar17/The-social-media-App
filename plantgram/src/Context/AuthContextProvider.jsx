@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { loginService } from "../services/loginService";
 import { useNavigate } from "react-router";
+import { getLoggedInUser, getUser } from "../services/userService";
 
 export const AuthContext = createContext();
 
@@ -27,6 +28,7 @@ export const AuthContextProvider = ({ children }) => {
           );
           setToken(encodedToken);
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
+          
           setUser(foundUser);
         }
       } catch (e) {
@@ -34,6 +36,10 @@ export const AuthContextProvider = ({ children }) => {
       }
     }
   };
+
+ useEffect(()=>{
+    getLoggedInUser(user)
+ },[])
 
   const logoutHandler = ()=>{
     localStorage.clear();
