@@ -7,12 +7,15 @@ import { Feed } from './Pages/Feed/Feed';
 import { BookMark } from './Pages/BookMark/BookMark';
 import { Explore } from './Pages/Explore/Explore';
 import { Post } from './Pages/Post/Post';
+import { Profile } from './Pages/Profile/Profile';
+import { SideBar } from './Components/SideBar/SideBar';
 
 
 
 function App() {
   return (
     <div>
+      {/* <SideBar/> */}
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<SignUp/>}/>
@@ -20,6 +23,7 @@ function App() {
         <Route path="/bookmark" element={<BookMark/>}/>
         <Route path="/explore" element={<Explore/>}/>
         <Route path="/post/:postID" element={<Post/>}/>
+        <Route path="/profile/:profileUserName" element={<Profile/>}/>
       </Routes>
     </div>
   );

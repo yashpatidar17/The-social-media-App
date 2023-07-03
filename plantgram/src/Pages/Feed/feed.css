@@ -1,14 +1,26 @@
 .Feed{
     display: flex;
     flex-direction:column;
-    justify-content: space-between;
+    justify-content: space-around;
+    
 }
 
 .Feed-first{
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
+    justify-content: space-around;
+    margin: 0 250px;
     gap: 50px;
     margin-top: 20px;
 }
 
+.feed-card{
+    height: 800px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* Hide the scrollbar */
+}
+
+.feed-card::-webkit-scrollbar{
+    width: 0;
+}

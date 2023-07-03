@@ -1,10 +1,11 @@
-.navbar{
+/* .navbar{
     display:flex;
     flex-direction:row;
     justify-content:space-evenly;
     align-items: center;
     height: 60px;
     background-color: antiquewhite;
+    
 }
 
 .navbar-content{
@@ -12,4 +13,23 @@
     flex-direction:row;
     gap: 20px;
 }
-  
+   */
+
+   .navbar{
+    background-color: antiquewhite;
+    padding: 10px;
+   }
+
+   .navbar-first{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+   }
+
+   .navbar-content{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+   }
+
+   

@@ -1,23 +1,23 @@
-import { useContext, useState } from "react"
-import { AuthContext } from "../../Context/AuthContextProvider"
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Context/AuthContextProvider";
 import { DataContext } from "../../Context/DataContextProvider";
 import { createPostService } from "../../services/postService";
 
-export const PostInput = ()=>{
-    const [postData, setCreatePost] = useState("");
-    const {user,token} = useContext(AuthContext);
-    const {dataDispatch,dataState} = useContext(DataContext);
-    const postInputHandler = (e) => {
-        setCreatePost(e.target.value);
-      };
-    
-      const createPostHandler = () => {
-        createPostService(postData, dataDispatch, token);
-        setCreatePost("");
-      };
-    return(
-        <div>
-            <div className="postCard">
+export const PostInput = () => {
+  const [postData, setCreatePost] = useState("");
+  const { user, token } = useContext(AuthContext);
+  const { dataDispatch, dataState } = useContext(DataContext);
+  const postInputHandler = (e) => {
+    setCreatePost(e.target.value);
+  };
+
+  const createPostHandler = () => {
+    createPostService(postData, dataDispatch, token);
+    setCreatePost("");
+  };
+  return (
+    <div>
+      <div className="postCard">
         <div className="input-container">
           <img
             src={user?.profileAvatar}
@@ -36,6 +36,6 @@ export const PostInput = ()=>{
           </button>
         </div>
       </div>
-        </div>
-    )
-}
+    </div>
+  );
+};

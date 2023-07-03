@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { dataReducer } from "../Reducers/DataReducer";
 import {
   deleteBookmark,
@@ -14,6 +20,7 @@ const DataInitialState = {
   bookmark: [],
   liked: false,
   loginUser: null,
+  explore:false,
 };
 export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
@@ -52,17 +59,19 @@ export const DataContextProvider = ({ children }) => {
 
   const latestHadler = (value) => {
     setSort(value);
+    setTrend("");
   };
 
   const trendingHandler = (value) => {
     setTrend(value);
+    setSort("");
   };
 
   const sortedFun = () => {
     let pos = [...postsData];
 
     if (trend === "trending") {
-      return (pos = pos.sort((a, b) => a.likes.likeCount - b.likes.likeCount));
+      return (pos = pos.sort((a, b) => b.likes.likeCount - a.likes.likeCount));
     }
 
     if (sort === "latest") {
@@ -70,12 +79,16 @@ export const DataContextProvider = ({ children }) => {
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       ));
     }
-    
+
     return pos;
   };
 
+  const signInUser = dataState?.AllUsers.find(
+    (item) => item.username === user.username
+  );
+  const userFollowingList = signInUser?.following.map((item) => item.username);
+
   const sortedPostData = sortedFun();
-  console.log(sortedPostData, "sorted data");
   return (
     <div>
       <DataContext.Provider
@@ -94,6 +107,8 @@ export const DataContextProvider = ({ children }) => {
           setSort,
           sortedPostData,
           trendingHandler,
+          signInUser,
+          userFollowingList,
         }}
       >
         {children}

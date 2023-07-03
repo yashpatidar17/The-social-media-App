@@ -32,7 +32,7 @@ export const BookMark = () => {
           <p>No Post Here</p>
         ) : (
           bookMark?.map((post) => (
-            <div className="postCard" key={post._id}>
+            <div className="bookmark-card" key={post._id}>
               <div className="postCard-first">
                 <img
                   src={post.profileAvatar}
@@ -50,7 +50,7 @@ export const BookMark = () => {
                 <img
                   src={post.postImage}
                   alt="content"
-                  className="contentpic"
+                  className="bookmark-contentpic"
                 />
               </div>
 
