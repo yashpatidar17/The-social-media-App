@@ -6,6 +6,13 @@ export const dataReducer = (state, action) => {
     case "Get_All_Users": {
       return { ...state, AllUsers: [...action.payload] };
     }
+    case "User_Operation":
+      return {
+        ...state,
+        AllUsers: state.AllUsers.map((user) =>
+          action.payload.username === user.username ? action.payload : user
+        ),
+      };
     case "Loged_in_user": {
       return { ...state, loginUser: action.payload };
     }
@@ -17,6 +24,9 @@ export const dataReducer = (state, action) => {
     }
     case "Remove-BookMark": {
       return { ...state, bookmark: [...action.payload] };
+    }
+    case "explore-toggle": {
+      return { ...state, explore: action.payload };
     }
 
     case "Post_Operations": {

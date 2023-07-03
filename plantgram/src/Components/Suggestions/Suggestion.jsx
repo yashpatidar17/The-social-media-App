@@ -5,13 +5,20 @@ import "./suggestion.css";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { getAllUsers } from "../../services/userService";
 import { followReq } from "../../services/postService";
+import { Link } from "react-router-dom";
 
 export const Suggestion = () => {
-  const { dataState, dataDispatch } = useContext(DataContext);
-  const { token } = useContext(AuthContext);
-  const { user } = useContext(AuthContext);
-  
-  const suggestions = dataState?.AllUsers?.filter((item) => item?.username !== user?.username );
+  const { dataState, dataDispatch, userFollowingList, signInUser } =
+    useContext(DataContext);
+
+  const { user, token } = useContext(AuthContext);
+
+  const suggestions = dataState?.AllUsers?.filter(
+    (item) =>
+      item.username !== user.username &&
+      !userFollowingList.includes(item.username)
+  );
+
   const followUserHandler = (item, dataDispatch, token) => {
     followReq(item, dataDispatch, token);
   };
@@ -22,15 +29,19 @@ export const Suggestion = () => {
 
   return (
     <div className="suggestion-container">
-      <input placeholder="serach users here" />
+      <div className="suggestion-search">
+        <input placeholder="serach users here" />
+      </div>
       {suggestions.map((item) => (
         <div className="suggestion-first" key={item._id}>
           <div className="suggestion-two">
-            <img
-              src={item?.profileAvatar}
-              alt="profile"
-              className="profilepic"
-            />
+            <Link to={`/profile/${item?.username}`}>
+              <img
+                src={item?.profileAvatar}
+                alt="profile pic"
+                className="profilepic"
+              />
+            </Link>
             <div className="suggestion-third">
               <span>{item?.firstName + " " + item?.lastName}</span>
               <span>@{item?.username}</span>

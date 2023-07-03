@@ -16,12 +16,35 @@ export const getAllUsers = async (dataDispatch) => {
 
 
   // Not Working
-  export const getLoggedInUser = async (user) => {
+  // export const getLoggedInUser = async (user) => {
 
+  //   try {
+  //     const resp = await axios.get(`/api/users/${user._id}`);
+  //     console.log("resp", resp);
+  //   } catch (error) {
+  //     console.log(error,"error from getting user");
+  //   }
+  // };
+
+  export const editUserHandler = async (userData,token, dataDispatch) => {
     try {
-      const resp = await axios.get(`/api/users/${user._id}`);
-      console.log("resp", resp);
+      const {
+        status,
+        data: { user },
+      } = await axios.post(
+        "/api/users/edit",
+        { userData },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log(user,"fbiaskjbfkasjbfjkasdbfgiakesbjf");
+      if (status === 200 || status === 201) {
+        dataDispatch({ type: "User_Operation", payload: user });
+      }
     } catch (error) {
-      console.log(error,"error from getting user");
+      console.log(error);
     }
   };

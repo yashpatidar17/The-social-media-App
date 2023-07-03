@@ -1,17 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
+import "./profilecard.css"
 import { DataContext } from "../../Context/DataContextProvider";
-
-import "./postcard.css";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
-import { createPostService, getPostData } from "../../services/postService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 import { Link } from "react-router-dom";
-export const PostCard = () => {
+export const ProfileCard = ({userPost}) => {
   const {
-    dataState,
     dataDispatch,
     bookMarkHandler,
     likeHandler,
@@ -19,31 +16,12 @@ export const PostCard = () => {
     likedByUser,
     bookmarkByUser,
     deleteRemoveHandler,
-    sortedPostData,
-    userFollowingList,
   } = useContext(DataContext);
   const { token, user } = useContext(AuthContext);
-
-  useEffect(() => {
-    getPostData(dataDispatch);
-  }, []);
-  // for commit
-  // const userPost = dataState.post.filter(
-  //   (item) => item.username === user.username
-  // );
-
-  const newSortedPostData = sortedPostData.reduce(
-    (acc, curr) =>
-      userFollowingList.includes(curr.username) ||
-      curr.username === user.username
-        ? [...acc, curr]
-        : acc,
-    []
-  );
-
+  
   return (
     <div>
-      {newSortedPostData?.map((post) => (
+      {userPost?.map((post) => (
         <div className="postCard" key={post._id}>
           <div className="postCard-first">
           <Link to={`/profile/${post?.username}`}>

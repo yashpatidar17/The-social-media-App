@@ -1,18 +1,21 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { loginService } from "../services/loginService";
 import { useNavigate } from "react-router";
-import { getLoggedInUser, getUser } from "../services/userService";
+
+
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  // const {dataState} = useContext(DataContext)
   const [loginData, setLoginData] = useState({ username: "", password: "" });
   const localStorageToken = JSON.parse(localStorage.getItem("token"));
   const [token, setToken] = useState(localStorageToken?.token);
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(localStorageUser?.user);
   const navigate = useNavigate() 
-
+  // const signInUser = dataState.Allusers.find((item)=> item.username === user.username);
+  // console.log(signInUser,"bjkfbaksdjfba")
   
   const loginUser = async (username, password) => {
     if (username && password !== "") {
@@ -37,9 +40,6 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
- useEffect(()=>{
-    getLoggedInUser(user)
- },[])
 
   const logoutHandler = ()=>{
     localStorage.clear();
