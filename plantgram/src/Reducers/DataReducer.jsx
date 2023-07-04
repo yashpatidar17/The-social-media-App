@@ -17,7 +17,14 @@ export const dataReducer = (state, action) => {
       return { ...state, loginUser: action.payload };
     }
     case "BookMark": {
-      return { ...state, bookmark: [...action.payload] };
+      return {
+        ...state,
+        AllUsers: state.AllUsers.map((item) =>
+          item.username === action.payload.user.username
+            ? { ...item, bookmarks: action.payload.bookmarks }
+            : item
+        ),
+      };
     }
     case "liked": {
       return { ...state, liked: action.payload };

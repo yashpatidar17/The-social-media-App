@@ -100,3 +100,20 @@
     justify-content:center;
     gap: 10px;
   }
+
+  /* .ThreeDot{
+    margin-left: 70px;
+  } */
+
+  .postCard-first-first{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .postCard-first{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }

@@ -14,7 +14,7 @@
     gap: 20px;
 }
    */
-
+/* 
    .navbar{
     background-color: antiquewhite;
     padding: 10px;
@@ -32,4 +32,41 @@
     justify-content:space-evenly;
    }
 
-   
+   @media (min-width: 1024px) {
+        
+   } */
+
+   .navbar{
+    display: flex;
+    flex-direction: row;
+    background-color: antiquewhite;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    
+   }
+
+   .navbar-content{
+    display: flex;
+    flex-direction: row ;
+    gap: 15px;
+    align-items: center;
+   }
+
+   .navbar-heading{
+    font-size: 0.8rem;
+   }
+   .icon-nav{
+    font-size: small;
+}
+
+   @media (min-width: 1024px) {
+    .navbar-heading{
+        font-size: 1rem;
+       }
+
+       .navbar-content{
+        gap: 50px;
+       }
+
+   }

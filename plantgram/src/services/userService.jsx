@@ -40,7 +40,6 @@ export const getAllUsers = async (dataDispatch) => {
           },
         }
       );
-      console.log(user,"fbiaskjbfkasjbfjkasdbfgiakesbjf");
       if (status === 200 || status === 201) {
         dataDispatch({ type: "User_Operation", payload: user });
       }

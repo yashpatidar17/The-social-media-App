@@ -1,7 +1,6 @@
 import {
   createContext,
   useContext,
-  useEffect,
   useReducer,
   useState,
 } from "react";
@@ -27,11 +26,14 @@ export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, DataInitialState);
   const [sort, setSort] = useState("");
   const [trend, setTrend] = useState("");
-  const { user } = useContext(AuthContext);
+  const { user,token } = useContext(AuthContext);
   const postsData = dataState.post;
-
-  const bookMarkHandler = (post, dataDispatch, token) => {
-    postBookMark(post, dataDispatch, token);
+   
+  const bookMarkHandler = (post, dataDispatch, token,user) => {
+    postBookMark(post, dataDispatch, token,user);
+  };
+  const deleteRemoveHandler = (post, dataDispatch, token,user) => {
+    deleteBookmark(post, dataDispatch, token,user);
   };
 
   const likeHandler = (post, dataDispatch, token) => {
@@ -50,12 +52,10 @@ export const DataContextProvider = ({ children }) => {
   };
 
   const bookmarkByUser = (post) => {
-    return dataState.bookmark?.find((item) => item._id === post._id);
+    return signInUser?.bookmarks?.find((item) => item._id === post._id);
   };
 
-  const deleteRemoveHandler = (post, dataDispatch, token) => {
-    deleteBookmark(post, dataDispatch, token);
-  };
+  
 
   const latestHadler = (value) => {
     setSort(value);
@@ -89,6 +89,16 @@ export const DataContextProvider = ({ children }) => {
   const userFollowingList = signInUser?.following.map((item) => item.username);
 
   const sortedPostData = sortedFun();
+  const newSortedPostData = sortedPostData.reduce(
+    (acc, curr) =>
+      userFollowingList.includes(curr.username) ||
+      curr.username === user.username
+        ? [...acc, curr]
+        : acc,
+    []
+  );
+
+  console.log({signInUser})
   return (
     <div>
       <DataContext.Provider
@@ -109,6 +119,7 @@ export const DataContextProvider = ({ children }) => {
           trendingHandler,
           signInUser,
           userFollowingList,
+          newSortedPostData
         }}
       >
         {children}
