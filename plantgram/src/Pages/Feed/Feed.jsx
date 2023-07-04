@@ -8,7 +8,7 @@ import "./feed.css";
 import { DataContext } from "../../Context/DataContextProvider";
 import { SideBar } from "../../Components/SideBar/SideBar";
 export const Feed = () => {
-  const { dataDispatch } = useContext(DataContext);
+  const { dataDispatch,newSortedPostData} = useContext(DataContext);
   useEffect(() => {
     dataDispatch({ type: "explore-toggle", payload: false });
   }, []);
@@ -23,7 +23,7 @@ export const Feed = () => {
           <PostInput />
           <Sorting />
           <div className="feed-card-first">
-          <PostCard />
+          <PostCard propData={newSortedPostData}/>
           </div>
         </div>
         <div className="suggestion">

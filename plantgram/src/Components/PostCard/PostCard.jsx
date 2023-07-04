@@ -8,8 +8,9 @@ import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import { createPostService, getPostData } from "../../services/postService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
+import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import { Link } from "react-router-dom";
-export const PostCard = () => {
+export const PostCard = ({propData}) => {
   const {
     dataState,
     dataDispatch,
@@ -21,31 +22,20 @@ export const PostCard = () => {
     deleteRemoveHandler,
     sortedPostData,
     userFollowingList,
+    signInUser
   } = useContext(DataContext);
   const { token, user } = useContext(AuthContext);
 
   useEffect(() => {
     getPostData(dataDispatch);
   }, []);
-  // for commit
-  // const userPost = dataState.post.filter(
-  //   (item) => item.username === user.username
-  // );
-
-  const newSortedPostData = sortedPostData.reduce(
-    (acc, curr) =>
-      userFollowingList.includes(curr.username) ||
-      curr.username === user.username
-        ? [...acc, curr]
-        : acc,
-    []
-  );
-
+ 
   return (
     <div>
-      {newSortedPostData?.map((post) => (
+      {propData?.map((post) => (
         <div className="postCard" key={post._id}>
           <div className="postCard-first">
+          <div className="postCard-first-first">
           <Link to={`/profile/${post?.username}`}>
               <img
                 src={post?.profileAvatar}
@@ -57,6 +47,10 @@ export const PostCard = () => {
               <p className="fullName">{post.fullName}</p>
               <p className="createdAt">{post.createdAt.slice(0, 10)}</p>
               <p className="username">@{post.username}</p>
+            </div>
+            </div>
+            <div>
+            <MoreVertRoundedIcon className="ThreeDot"/>
             </div>
           </div>
           <div className="context-box">
@@ -84,17 +78,17 @@ export const PostCard = () => {
                   onClick={() => likeHandler(post, dataDispatch, token)}
                 />
               )}
-              <span>{post.likes.likeCount}</span>
+              <span>{post?.likes?.likeCount}</span>
             </div>
 
             <div>
               {bookmarkByUser(post) ? (
                 <BookmarkRoundedIcon
-                  onClick={() => deleteRemoveHandler(post, dataDispatch, token)}
+                  onClick={() => deleteRemoveHandler(post, dataDispatch, token,user)}
                 />
               ) : (
                 <BookmarkBorderRoundedIcon
-                  onClick={() => bookMarkHandler(post, dataDispatch, token)}
+                  onClick={() => bookMarkHandler(post, dataDispatch, token,user)}
                 />
               )}
             </div>

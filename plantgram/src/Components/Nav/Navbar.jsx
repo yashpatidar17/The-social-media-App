@@ -13,25 +13,20 @@ export const Navbar = ()=>{
     const navigate = useNavigate();
     return(
         <div className="navbar">
-            <div className="navbar-first">
+            
             <div className="navbar-heading">
             <h2>PlantGram</h2>
+            </div>
+            <div className="navbar-content">
+                <HomeRoundedIcon onClick={()=>navigate("/feed")} className="icon-nav"/>
+                <BookmarkRoundedIcon onClick={()=>navigate("/bookmark")}/>
+                <ExploreRoundedIcon onClick={()=>navigate("/explore")}/>
+               <LogoutRoundedIcon onClick={logoutHandler}/>
             </div>
             <div className="navbar-profile">
                 <Link to={`/profile/${user?.username}`}>
                 <img src={user?.profileAvatar} alt="profile pic" className="profilepic"/> 
                 </Link>
-            </div>
-            </div>
-            <div className="navbar-content">
-                <HomeRoundedIcon onClick={()=>navigate("/feed")}/>
-                <BookmarkRoundedIcon onClick={()=>navigate("/bookmark")}/>
-                <ExploreRoundedIcon onClick={()=>navigate("/explore")}/>
-               {/* <p><Link to="/feed">Home</Link></p> 
-               <p><Link to="/explore">Explore</Link></p> 
-               <p><Link to="/bookmark">Bookmarks</Link></p> 
-               <p onClick={logoutHandler}> Logout</p>  */}
-               <LogoutRoundedIcon onClick={logoutHandler}/>
             </div>
         </div>
     )

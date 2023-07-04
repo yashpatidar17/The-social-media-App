@@ -53,7 +53,8 @@ export const disLikePost = async (post, dataDispatch, token) => {
   }
 };
 
-export const postBookMark = async (post, dataDispatch, token) => {
+export const postBookMark = async (post, dataDispatch, token,user) => {
+  console.log(user,"iughbfaweuiolksghfuiaskd")
   try {
     const {
       status,
@@ -66,14 +67,14 @@ export const postBookMark = async (post, dataDispatch, token) => {
       }
     );
     if (status === 200 || status === 201) {
-      dataDispatch({ type: "BookMark", payload: bookmarks });
+      dataDispatch({ type: "BookMark", payload: {bookmarks,user} });
     }
   } catch (e) {
     console.log(e, "error from bookmark post call");
   }
 };
 
-export const deleteBookmark = async (post, dataDispatch, token) => {
+export const deleteBookmark = async (post, dataDispatch, token,user) => {
   try {
     const {
       status,
@@ -86,7 +87,7 @@ export const deleteBookmark = async (post, dataDispatch, token) => {
       }
     );
     if (status === 200 || status === 201) {
-      dataDispatch({ type: "Remove-BookMark", payload: bookmarks });
+      dataDispatch({ type: "BookMark", payload: {bookmarks,user} });
     }
   } catch (e) {
     console.log(e, "error from delete bookmark call");
