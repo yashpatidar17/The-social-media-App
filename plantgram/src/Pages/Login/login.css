@@ -4,14 +4,19 @@
     align-items:center;
     justify-content:center;
     border:1px solid black;
-    height: 400px;
+    height: 60%;
     width: 80%;
-    background-color:#EEEEEE;
-    position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    background-color:#fddfba;
+
   border-radius: 5px;
+}
+
+.login{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    
 }
 
 .login-heading-container{
@@ -56,9 +61,18 @@
 }
 
 .normal-button{
-    background-color:#FDDFBA;
+    background-color:#B2D8D8;
+    transition: background-color 0.3s;
     border-radius:5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
 }
+
+.normal-button:hover {
+    background-color: #82bbbb;
+  }
+  
 
 @media (min-width: 768px){
     .login-container{

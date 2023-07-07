@@ -23,8 +23,11 @@
     border: 1px solid #dbdbdb;
     border-radius: 10px;
     margin-bottom: 20px;
-   
   }
+
+  /* .postCard:hover{
+    background-color: rgb(249, 217, 176);
+} */
   
   .profilepic {
     width: 40px;
@@ -108,6 +111,20 @@
     display: flex;
     flex-direction: row;
     margin-left:10px
+  }
+  .threedorMenu{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+  }
+
+  .threedotButton{
+  background-color:#B2D8D8;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    padding: 5px;
   }
 
   .postCard-first-first{

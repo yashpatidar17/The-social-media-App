@@ -11,6 +11,7 @@ import { editUserHandler } from "../../services/userService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import { PostCard } from "../../Components/PostCard/PostCard";
+import { Navbar } from "../../Components/Nav/Navbar";
 
 export const Profile = () => {
   const { dataState, dataDispatch, userUnfollwHandler, signInUser } =
@@ -69,6 +70,7 @@ export const Profile = () => {
 
   return (
     <div className="profile-main-container">
+    <Navbar/>
       <h2 className="profile-head">User Profile</h2>
       <div className="profile-container">
         <div className="profile-main">
@@ -79,7 +81,7 @@ export const Profile = () => {
                 alt="profile pic"
                 className="profilepic-profile"
               />
-              <button>Change Avatar</button>
+              <button className="post-button">Change Avatar</button>
             </div>
             <div>
               <div className="profile-info">
@@ -90,7 +92,7 @@ export const Profile = () => {
                   <span>@{profileUser?.username}</span>
                 </div>
                 {profileUser?.username === user?.username ? (
-                  <button onClick={openModal}>Edit Button</button>
+                  <button onClick={openModal} className="post-button">Edit Button</button>
                 ) : (
                   <button onClick={() => userUnfollwHandler(profileUser)}>
                     UnFollow

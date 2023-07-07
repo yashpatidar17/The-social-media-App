@@ -16,7 +16,6 @@ import { Navbar } from './Components/Nav/Navbar';
 function App() {
   return (
     <div>
-    <Navbar />
       {/* <SideBar/> */}
       <Routes>
         <Route path="/" element={<Home/>}/>

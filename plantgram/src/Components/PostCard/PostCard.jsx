@@ -29,7 +29,7 @@ export const PostCard = ({ propData }) => {
     likedByUser,
     bookmarkByUser,
     deleteRemoveHandler,
-    unfollowHandler
+    unfollowHandler,
   } = useContext(DataContext);
   const { token, user } = useContext(AuthContext);
 
@@ -105,11 +105,10 @@ export const PostCard = ({ propData }) => {
                   selectedPost &&
                   selectedPost._id === post._id && (
                     <div className="dropdown-menu">
-                    {selectedPost.username === user.username ? (<ul>
-                        
-
-                        <li>
+                      {selectedPost.username === user.username ? (
+                        <div className="threedorMenu">
                           <button
+                            className="threedotButton"
                             onClick={() =>
                               postDeleteHandler(
                                 selectedPost._id,
@@ -120,16 +119,24 @@ export const PostCard = ({ propData }) => {
                           >
                             Delete Post
                           </button>
-                        </li>
-                        <li>
-                          <button onClick={openModal}>Edit Post</button>
-                        </li>
-                      </ul>) : (<ul>
-                        <li>
-                          <button onClick={()=>unfollowHandler(selectedPost)}>UnFollow</button>
-                        </li>
-                      </ul>)}
-                      
+
+                          <button
+                            className="threedotButton"
+                            onClick={openModal}
+                          >
+                            Edit Post
+                          </button>
+                        </div>
+                      ) : (
+                        <div>
+                          <button
+                            className="threedotButton"
+                            onClick={() => unfollowHandler(selectedPost)}
+                          >
+                            UnFollow
+                          </button>
+                        </div>
+                      )}
                     </div>
                   )}
               </div>
@@ -191,11 +198,10 @@ export const PostCard = ({ propData }) => {
         overlayClassName="modal-overlay"
       >
         <img
-                src={selectedPost.postImage}
-                alt="content"
-                className="contentpic"
-                
-              />
+          src={selectedPost.postImage}
+          alt="content"
+          className="contentpic"
+        />
 
         <form onSubmit={savePost}>
           <div className="modal-content">

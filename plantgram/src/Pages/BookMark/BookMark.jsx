@@ -26,7 +26,7 @@ export const BookMark = () => {
 //   },[post])
   return (
     <div>
-    
+      <Navbar />
       <div className="bookmark-container">
         <h2>BookMark</h2>
         {signInUser.bookmarks.length === 0 ? (
