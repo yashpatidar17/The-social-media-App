@@ -7,20 +7,53 @@
 
 .Feed-first{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    margin: 0 250px;
-    gap: 50px;
-    margin-top: 20px;
+    
 }
 
 .feed-card{
-    height: 800px;
+    /* height: 800px;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent; /* Hide the scrollbar */
+  scrollbar-color: transparent transparent;  */
+}
+.Feed >h2{
+    color: antiquewhite;
+    align-items: center;
 }
 
 .feed-card::-webkit-scrollbar{
     width: 0;
 }
+
+.suggestion{
+    display: none;
+}
+
+ 
+@media (min-width: 1024px){
+    .suggestion{
+        display: normal;
+    }
+
+
+    .feed-card{
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent; 
+    }
+
+    .Feed-first{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .suggestion{
+        display: block;
+    }
+} 

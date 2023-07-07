@@ -12,13 +12,10 @@ export const Feed = () => {
   useEffect(() => {
     dataDispatch({ type: "explore-toggle", payload: false });
   }, []);
+  
   return (
     <div className="Feed">
-      <div className="v-nav">
-        <Navbar />
-      </div>
       <div className="Feed-first">
-        {/* <SideBar/> */}
         <div className="feed-card">
           <PostInput />
           <Sorting />

@@ -42,14 +42,14 @@
     background-color: antiquewhite;
     justify-content: space-around;
     align-items: center;
-    padding: 5px;
     
+    width: 100%;
    }
 
    .navbar-content{
     display: flex;
     flex-direction: row ;
-    gap: 15px;
+    gap: 5px;
     align-items: center;
    }
 

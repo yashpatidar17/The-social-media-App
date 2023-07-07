@@ -1,5 +1,12 @@
 
   
+  .postCard-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top: 10px;
+  }
+  
   .icon-tray{
     display: flex;
     flex-direction: row;
@@ -11,12 +18,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 600px;
+    width: 90%;
     background-color: antiquewhite;
     border: 1px solid #dbdbdb;
     border-radius: 10px;
     margin-bottom: 20px;
-    
+   
   }
   
   .profilepic {
@@ -63,26 +70,22 @@
     object-fit: cover;
     border-radius: 10px;
     margin: 10px 0;
-    
   }
   
-  .postCard-first{
+  .postCard-first {
     display: flex;
-    align-items: center
+    flex-direction: row;
+    
+ 
+    width: 100%; 
   }
+  
 
   .icon-container{
     display: flex;
   }
 
 
-  .input-filed{
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
 
   .post-button{
     padding: 10px 20px;
@@ -101,9 +104,11 @@
     gap: 10px;
   }
 
-  /* .ThreeDot{
-    margin-left: 70px;
-  } */
+  .ThreeDot{
+    display: flex;
+    flex-direction: row;
+    margin-left:10px
+  }
 
   .postCard-first-first{
     display: flex;
@@ -115,5 +120,26 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+
+  .dropdownMenuStyles{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: black;
+    border-radius: 40px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+  };
+
+
+  @media (min-width: 768px){
+
+  }
+
+  @media (min-width: 1024px){
+      .postCard{
+        width: 700px;
+      }
   }

@@ -53,8 +53,8 @@ export const disLikePost = async (post, dataDispatch, token) => {
   }
 };
 
-export const postBookMark = async (post, dataDispatch, token,user) => {
-  console.log(user,"iughbfaweuiolksghfuiaskd")
+export const postBookMark = async (post, dataDispatch, token, user) => {
+  console.log(user, "iughbfaweuiolksghfuiaskd");
   try {
     const {
       status,
@@ -67,14 +67,14 @@ export const postBookMark = async (post, dataDispatch, token,user) => {
       }
     );
     if (status === 200 || status === 201) {
-      dataDispatch({ type: "BookMark", payload: {bookmarks,user} });
+      dataDispatch({ type: "BookMark", payload: { bookmarks, user } });
     }
   } catch (e) {
     console.log(e, "error from bookmark post call");
   }
 };
 
-export const deleteBookmark = async (post, dataDispatch, token,user) => {
+export const deleteBookmark = async (post, dataDispatch, token, user) => {
   try {
     const {
       status,
@@ -87,7 +87,7 @@ export const deleteBookmark = async (post, dataDispatch, token,user) => {
       }
     );
     if (status === 200 || status === 201) {
-      dataDispatch({ type: "BookMark", payload: {bookmarks,user} });
+      dataDispatch({ type: "BookMark", payload: { bookmarks, user } });
     }
   } catch (e) {
     console.log(e, "error from delete bookmark call");
@@ -124,9 +124,7 @@ export const followReq = async (item, dataDispatch, token) => {
   }
 };
 
-export const createPostService = async (
-  postData, dataDispatch, token
-) => {
+export const createPostService = async (postData, dataDispatch, token) => {
   try {
     const {
       status,
@@ -144,6 +142,84 @@ export const createPostService = async (
       dataDispatch({ type: "Post_Operations", payload: posts });
     }
   } catch (error) {
-    console.log(error,"from create post data");
+    console.log(error, "from create post data");
+  }
+};
+
+export const postDeleteService = async (_id, dataDispatch, token) => {
+  console.log({ _id });
+  try {
+    const {
+      status,
+      data: { posts },
+    } = await axios.delete(`/api/posts/${_id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (status === 200 && status === 201) {
+      dataDispatch({ type: "Post_Operations", payload: posts });
+    }
+  } catch (e) {
+    console.log(e, "error from post delelte handler");
+  }
+};
+
+export const editPostServices = async (
+  _id,
+  updatedPost,
+  dataDispatch,
+  token
+) => {
+  try {
+    const {
+      status,
+      data: { posts },
+    } = await axios.post(
+      `/api/posts/edit/${_id}`,
+      { postData: updatedPost },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+
+    if (status === 200 && status === 201) {
+      dataDispatch({ type: "Post_Operations", payload: posts });
+    }
+  } catch (e) {
+    console.log(e, "error from edit post handler");
+  }
+};
+
+export const unfollowServices = async (profileUser, dataDispatch, token) => {
+  try {
+    const {
+      status,
+      data: { user, followUser },
+    } = await axios.post(
+      `/api/users/unfollow/${profileUser._id}`,
+      {},
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+
+    if (status === 200 || status === 201) {
+      console.log(user, "from follow button", followUser);
+      dataDispatch({
+        type: "add_follower_inother",
+        payload: { user, followUser },
+      });
+      dataDispatch({
+        type: "Remove_Follower",
+        payload: { user, followUser },
+      });
+    }
+  } catch (e) {
+    console.log(e, "error from unfollow handler");
   }
 };

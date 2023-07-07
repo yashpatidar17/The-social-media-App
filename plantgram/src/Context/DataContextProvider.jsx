@@ -10,6 +10,7 @@ import {
   disLikePost,
   getLikePost,
   postBookMark,
+  unfollowServices,
 } from "../services/postService";
 import { AuthContext } from "./AuthContextProvider";
 
@@ -98,14 +99,23 @@ export const DataContextProvider = ({ children }) => {
     []
   );
 
-  console.log({signInUser})
+  const unfollowHandler = (selectedUser,dataDispatch,token)=>{
+      //fix this
+
+  }
+
+  const userUnfollwHandler = (profileUser,dataDispatch,token)=>{
+    console.log(profileUser);
+    unfollowServices(profileUser,dataDispatch,token);
+    }
+
+    console.log(dataState.post,"fisdf")
   return (
     <div>
       <DataContext.Provider
         value={{
           dataState,
           dataDispatch,
-          item: 4,
           bookMarkHandler,
           likeHandler,
           dislikeHAndler,
@@ -119,7 +129,8 @@ export const DataContextProvider = ({ children }) => {
           trendingHandler,
           signInUser,
           userFollowingList,
-          newSortedPostData
+          newSortedPostData,
+          unfollowHandler,userUnfollwHandler
         }}
       >
         {children}

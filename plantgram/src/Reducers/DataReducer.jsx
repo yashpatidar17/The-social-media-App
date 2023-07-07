@@ -62,6 +62,17 @@ export const dataReducer = (state, action) => {
         ),
       };
     }
+
+    case "Remove_Follower":{
+      return {
+        ...state,
+        AllUsers: state.AllUsers.map((item) =>
+          item.username === action.payload.followUser.username
+            ? { ...item, followers: [...item.followers, action.payload.user] }
+            : item
+        ),
+      };
+    }
     default: {
       return state;
     }

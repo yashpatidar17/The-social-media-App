@@ -9,12 +9,14 @@ import { Explore } from './Pages/Explore/Explore';
 import { Post } from './Pages/Post/Post';
 import { Profile } from './Pages/Profile/Profile';
 import { SideBar } from './Components/SideBar/SideBar';
+import { Navbar } from './Components/Nav/Navbar';
 
 
 
 function App() {
   return (
     <div>
+    <Navbar />
       {/* <SideBar/> */}
       <Routes>
         <Route path="/" element={<Home/>}/>
