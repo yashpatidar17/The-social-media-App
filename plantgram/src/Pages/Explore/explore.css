@@ -6,3 +6,8 @@
     display: flex;
     margin: 20px auto;
 }
+
+.v-nav-explore{
+    position: sticky;
+    top: 0;
+}

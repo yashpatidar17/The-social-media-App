@@ -34,9 +34,11 @@ export const PostInput = () => {
               className="input-filed"
             />
           </div>
+          <div className="input-container-second">
           <button onClick={createPostHandler} className="post-button">
             Post
           </button>
+          </div>
         </div>
       </div>
     </div>

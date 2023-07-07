@@ -15,6 +15,9 @@ export const Feed = () => {
   
   return (
     <div className="Feed">
+      <div className="v-nav-explore">
+        <Navbar />
+      </div>
       <div className="Feed-first">
         <div className="feed-card">
           <PostInput />

@@ -30,7 +30,7 @@ export const Suggestion = () => {
   return (
     <div className="suggestion-container">
       <div className="suggestion-search">
-        <input placeholder="serach users here" />
+        <input placeholder="serach users here" className="suggestion-input" />
       </div>
       {suggestions.map((item) => (
         <div className="suggestion-first" key={item._id}>
@@ -47,12 +47,14 @@ export const Suggestion = () => {
               <span>@{item?.username}</span>
             </div>
           </div>
+          <div>
           <button
-            className="suggestion-follow"
+            className="post-button"
             onClick={() => followUserHandler(item, dataDispatch, token)}
           >
             Follow
           </button>
+          </div>
         </div>
       ))}
     </div>

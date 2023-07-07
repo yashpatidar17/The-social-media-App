@@ -6,19 +6,25 @@
     border: 1px solid #dbdbdb;
     border-radius: 10px;
     margin: 10px 20px;
-   
+    justify-content: space-between;
+    width: 90%;
   }
   
   .postinput-first {
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
     align-items: center;
     width: 100%;
+    padding: 10px;
+    border: 1px solid black;
   }
   
   .input-container {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
+   
   }
   
   .profilepic {
@@ -30,28 +36,36 @@
   
   .input-filed {
     padding: 10px;
-    width: 80%;
+    width: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
   }
   
   .post-button {
-    background-color: #4caf50;
-    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: #B2D8D8;
+    color: black;
     border: none;
     border-radius: 5px;
     padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top:10px;
     display: flex;
-    align-items: flex-end;
+    margin-right: 10px;
   }
   
   .post-button:hover {
-    background-color: #45a049;
+    background-color: #82bbbb;
+  }
+
+  .input-container-second{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
   
 

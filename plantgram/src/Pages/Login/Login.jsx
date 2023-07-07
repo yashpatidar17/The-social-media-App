@@ -29,6 +29,7 @@ export const Login = () => {
   };
 
   return (
+    <div className="login">
     <div className="login-container">
       <div className="login-heading-container">
         <h3>PlantGram</h3>
@@ -65,5 +66,7 @@ export const Login = () => {
         Create a new account <Link to="signup">New Account</Link>
       </p>
     </div>
+    </div>
   );
+  
 };

@@ -19,7 +19,10 @@
     border: none;
     background-color: antiquewhite;
     border-radius: 10px;
-    
+    transition: background-color 0.3s;
+}
+.sorting-buttons:hover{
+    background-color: rgb(249, 217, 176);
 }
 
 .sorting-line{

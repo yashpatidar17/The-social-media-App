@@ -14,7 +14,9 @@ export const Explore = ()=>{
     },[])
     return(
         <div className="Feed">
-       >
+        <div className="v-nav-explore">
+            <Navbar/>
+        </div>
         <h2>Explore</h2>
         <div className="Feed-first">
         <div className="feed-card">
