@@ -3,20 +3,20 @@ import React from "react";
 import Modal from "react-modal";
 import "./modal.css";
 import "./profile.css";
-import { Navbar } from "../../Components/Nav/Navbar";
+
 import { Suggestion } from "../../Components/Suggestions/Suggestion";
 import { DataContext } from "../../Context/DataContextProvider";
 import { useParams } from "react-router";
-import { ProfileCard } from "./ProfileCard";
 import { editUserHandler } from "../../services/userService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
-import { Link } from "react-router-dom";
+import { PostCard } from "../../Components/PostCard/PostCard";
 
 export const Profile = () => {
-  const { dataState, dataDispatch } = useContext(DataContext);
+  const { dataState, dataDispatch, userUnfollwHandler, signInUser } =
+    useContext(DataContext);
   const profileUserName = useParams();
-  const { token } = useContext(AuthContext);
+  const { token, user } = useContext(AuthContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileUser, setUserProfile] = useState(null);
   const [userPost, setUserPost] = useState(null);
@@ -41,17 +41,6 @@ export const Profile = () => {
       profileAvatar: profileUser?.profileAvatar,
     });
   };
-
-  // console.log()
-
-  // useEffect(() => {
-  //   getProfilePageData();
-
-  // }, []);
-
-  // useEffect(() => {
-  //   getProfilePageData();
-  // }, [profileUserName]);
 
   useEffect(() => {
     getProfilePageData();
@@ -79,8 +68,7 @@ export const Profile = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div className="profile-main-container">
       <h2 className="profile-head">User Profile</h2>
       <div className="profile-container">
         <div className="profile-main">
@@ -101,7 +89,13 @@ export const Profile = () => {
                   </span>
                   <span>@{profileUser?.username}</span>
                 </div>
-                <button onClick={openModal}>Edit Button</button>
+                {profileUser?.username === user?.username ? (
+                  <button onClick={openModal}>Edit Button</button>
+                ) : (
+                  <button onClick={() => userUnfollwHandler(profileUser)}>
+                    UnFollow
+                  </button>
+                )}
               </div>
               <p>{profileUser?.bio}</p>
               <a
@@ -119,12 +113,13 @@ export const Profile = () => {
               </div>
             </div>
           </div>
-          <div>
-            <ProfileCard userPost={userPost} />
+          <div className="profile-postcard">
+            <PostCard propData={userPost} />
           </div>
         </div>
-
-        <Suggestion />
+        <div className="profile-sug">
+          <Suggestion />
+        </div>
       </div>
 
       <Modal

@@ -78,6 +78,7 @@ export const createPostHandler = function (schema, request) {
       );
     }
     const { postData } = JSON.parse(request.requestBody);
+    console.log(user,"from controller")
     const post = {
       _id: uuid(),
       ...postData,
@@ -86,6 +87,9 @@ export const createPostHandler = function (schema, request) {
         likedBy: [],
         dislikedBy: [],
       },
+      fullName: user.firstName + " " + user.lastName,
+      profileAvatar: user.profileAvatar,
+      // content:postData,
       username: user.username,
       createdAt: formatDate(),
       updatedAt: formatDate(),

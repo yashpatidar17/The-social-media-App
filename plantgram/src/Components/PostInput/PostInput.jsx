@@ -1,36 +1,39 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { DataContext } from "../../Context/DataContextProvider";
 import { createPostService } from "../../services/postService";
-
+import "./postinput.css";
 export const PostInput = () => {
-  const [postData, setCreatePost] = useState("");
+  // const [postData, setCreatePost] = useState("");
   const { user, token } = useContext(AuthContext);
   const { dataDispatch, dataState } = useContext(DataContext);
+
+  let postData = { content: "" };
   const postInputHandler = (e) => {
-    setCreatePost(e.target.value);
+    postData = { ...postData, content: e.target.value };
   };
 
   const createPostHandler = () => {
     createPostService(postData, dataDispatch, token);
-    setCreatePost("");
+    postData = { content: "" };
   };
+  console.log("fbjkasbdf");
   return (
     <div>
-      <div className="postCard">
-        <div className="input-container">
-          <img
-            src={user?.profileAvatar}
-            alt="profile avataar"
-            className="profilepic"
-          />
-
-          <input
-            placeholder="post something here"
-            value={postData}
-            onChange={(e) => postInputHandler(e)}
-            className="input-filed"
-          />
+      <div className="postinput">
+        <div className="postinput-first">
+          <div className="input-container">
+            <img
+              src={user?.profileAvatar}
+              alt="profile avataar"
+              className="profilepic"
+            />
+            <textarea
+              placeholder="post something here"
+              onChange={(e) => postInputHandler(e)}
+              className="input-filed"
+            />
+          </div>
           <button onClick={createPostHandler} className="post-button">
             Post
           </button>

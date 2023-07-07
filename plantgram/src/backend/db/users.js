@@ -14,7 +14,7 @@ export const users = [
     password: "gulla123",
     bio: "learning React",
     bookmarks: [],
-    website: "https://github.com/yashpatidar17/The-social-media-App",
+    website: "https://github.com/yashpatidar17",
     profileAvatar: "https://i.postimg.cc/76VjbgBM/IMG20220709162937.jpg",
     following: [
       {

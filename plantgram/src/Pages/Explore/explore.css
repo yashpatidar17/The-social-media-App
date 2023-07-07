@@ -1,0 +1,8 @@
+.suggestion{
+    margin-top:10px
+}
+
+.Feed >h2{
+    display: flex;
+    margin: 20px auto;
+}
