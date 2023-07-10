@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: rgb(249, 243, 237);
     border: 1px solid #dbdbdb;
     border-radius: 10px;
     margin: 10px 20px;
@@ -17,13 +17,14 @@
     align-items: center;
     width: 100%;
     padding: 10px;
-    border: 1px solid black;
+
   }
   
   .input-container {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
+   width: 90%;
+   background-color: rgb(249, 243, 237);
    
   }
   
@@ -36,12 +37,18 @@
   
   .input-filed {
     padding: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
+    width: 100%;
+    border: none;
     border-radius: 5px;
     font-size: 14px;
+    background-color: rgb(249, 243, 237);
+    outline: none;
   }
   
+  .input-field:focus {
+
+    border: none;
+  }
   .post-button {
     display: flex;
     align-items: flex-end;
@@ -66,8 +73,10 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-  }
   
+    width: 93%;
+  }
+
 
   @media (min-width: 1024px) {
     .postinput{

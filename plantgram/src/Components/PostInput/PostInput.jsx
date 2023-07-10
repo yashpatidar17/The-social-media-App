@@ -6,7 +6,7 @@ import "./postinput.css";
 export const PostInput = () => {
   // const [postData, setCreatePost] = useState("");
   const { user, token } = useContext(AuthContext);
-  const { dataDispatch, dataState } = useContext(DataContext);
+  const { dataDispatch } = useContext(DataContext);
 
   let postData = { content: "" };
   const postInputHandler = (e) => {
@@ -35,9 +35,9 @@ export const PostInput = () => {
             />
           </div>
           <div className="input-container-second">
-          <button onClick={createPostHandler} className="post-button">
-            Post
-          </button>
+            <button onClick={createPostHandler} className="post-button">
+              Post
+            </button>
           </div>
         </div>
       </div>

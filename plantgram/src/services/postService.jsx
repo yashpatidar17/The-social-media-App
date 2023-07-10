@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 export const getPostData = async (dataDispatch) => {
   try {
@@ -27,6 +28,7 @@ export const getLikePost = async (post, dataDispatch, token) => {
     console.log("post liked");
     if (status === 200 || status === 201) {
       dataDispatch({ type: "Get_All_Post", payload: posts });
+      toast.success("Liked",{ autoClose: 500 });
     }
   } catch (e) {
     console.log(e, "like post api");
@@ -46,6 +48,7 @@ export const disLikePost = async (post, dataDispatch, token) => {
     console.log("post disliked");
     if (status === 200 || status === 201) {
       dataDispatch({ type: "Get_All_Post", payload: posts });
+      toast.success("Disliked",{ autoClose: 500 });
     }
     // dataDispatch({type:"liked",payload:false,})
   } catch (e) {
@@ -68,6 +71,7 @@ export const postBookMark = async (post, dataDispatch, token, user) => {
     );
     if (status === 200 || status === 201) {
       dataDispatch({ type: "BookMark", payload: { bookmarks, user } });
+      toast.success("Bookmarked",{ autoClose: 500 });
     }
   } catch (e) {
     console.log(e, "error from bookmark post call");
@@ -88,6 +92,7 @@ export const deleteBookmark = async (post, dataDispatch, token, user) => {
     );
     if (status === 200 || status === 201) {
       dataDispatch({ type: "BookMark", payload: { bookmarks, user } });
+      toast.success("Removed from Bookmark",{ autoClose: 500 });
     }
   } catch (e) {
     console.log(e, "error from delete bookmark call");
@@ -118,7 +123,11 @@ export const followReq = async (item, dataDispatch, token) => {
         type: "Add_Following",
         payload: { user, followUser },
       });
+      toast.success("Followed",{ autoClose: 500 });
+     
     }
+
+    
   } catch (e) {
     console.log(e, "error from follow request");
   }
@@ -140,6 +149,7 @@ export const createPostService = async (postData, dataDispatch, token) => {
     );
     if (status === 200 || status === 201) {
       dataDispatch({ type: "Post_Operations", payload: posts });
+      toast.success("Post Created",{ autoClose: 500 });
     }
   } catch (error) {
     console.log(error, "from create post data");
@@ -159,6 +169,7 @@ export const postDeleteService = async (_id, dataDispatch, token) => {
     });
     if (status === 200 && status === 201) {
       dataDispatch({ type: "Post_Operations", payload: posts });
+      toast.success("Post Deleted",{ autoClose: 500 });
     }
   } catch (e) {
     console.log(e, "error from post delelte handler");
@@ -187,6 +198,7 @@ export const editPostServices = async (
 
     if (status === 200 && status === 201) {
       dataDispatch({ type: "Post_Operations", payload: posts });
+      toast.success("Post Edited",{ autoClose: 500 });
     }
   } catch (e) {
     console.log(e, "error from edit post handler");
@@ -208,16 +220,19 @@ export const unfollowServices = async (profileUser, dataDispatch, token) => {
       }
     );
 
+    console.log(user,followUser,"dfbuiwevbdfi");
+
     if (status === 200 || status === 201) {
-      console.log(user, "from follow button", followUser);
+      console.log("unfollow worked")
       dataDispatch({
-        type: "add_follower_inother",
+        type: "Remove_Following",
         payload: { user, followUser },
       });
       dataDispatch({
         type: "Remove_Follower",
         payload: { user, followUser },
       });
+      toast.success("UnFollowed",{ autoClose: 500 });
     }
   } catch (e) {
     console.log(e, "error from unfollow handler");

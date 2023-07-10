@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { useContext, useEffect } from "react";
+
+
 export const Login = () => {
   const { loginData, setLoginData, loginUser, token } = useContext(AuthContext);
   console.log(loginData);

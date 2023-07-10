@@ -62,13 +62,38 @@ export const dataReducer = (state, action) => {
         ),
       };
     }
+    case "add_new_user": {
+      return { ...state, AllUsers: [...state.AllUsers, action.payload] };
+    }
 
-    case "Remove_Follower":{
+    case "Remove_Following": {
+      return {
+        ...state,
+        AllUsers: state.AllUsers.map((item) =>
+          item.username === action.payload.user.username
+            ? {
+                ...item,
+                following: item.following.filter(
+                  (item) =>
+                    item.username === !action.payload.followUser.username
+                ),
+              }
+            : item
+        ),
+      };
+    }
+
+    case "Remove_Follower": {
       return {
         ...state,
         AllUsers: state.AllUsers.map((item) =>
           item.username === action.payload.followUser.username
-            ? { ...item, followers: [...item.followers, action.payload.user] }
+            ? {
+                ...item,
+                followers: item.followers.filter(
+                  (item) => item.username === !action.payload.followUser
+                ),
+              }
             : item
         ),
       };

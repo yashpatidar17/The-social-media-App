@@ -1,9 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { dataReducer } from "../Reducers/DataReducer";
 import {
   deleteBookmark,
@@ -13,31 +8,32 @@ import {
   unfollowServices,
 } from "../services/postService";
 import { AuthContext } from "./AuthContextProvider";
-
+import { toast } from 'react-toastify';
 const DataInitialState = {
   post: [],
   AllUsers: [],
   bookmark: [],
   liked: false,
   loginUser: null,
-  explore:false,
+  explore: false,
 };
 export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, DataInitialState);
   const [sort, setSort] = useState("");
   const [trend, setTrend] = useState("");
-  const { user,token } = useContext(AuthContext);
+  const [following, setFollowing] = useState(false);
+  const { user, token } = useContext(AuthContext);
   const postsData = dataState.post;
-   
-  const bookMarkHandler = (post, dataDispatch, token,user) => {
-    postBookMark(post, dataDispatch, token,user);
+
+  const bookMarkHandler = (post, dataDispatch, token, user) => {
+    postBookMark(post, dataDispatch, token, user);
   };
-  const deleteRemoveHandler = (post, dataDispatch, token,user) => {
-    deleteBookmark(post, dataDispatch, token,user);
+  const deleteRemoveHandler = (post, dataDispatch, token, user) => {
+    deleteBookmark(post, dataDispatch, token, user);
   };
 
-  const likeHandler = (post, dataDispatch, token) => {
+  const likeHandler = (post, dataDispatch, token,toast) => {
     dataDispatch({ type: "liked", payload: true });
     getLikePost(post, dataDispatch, token);
   };
@@ -55,8 +51,6 @@ export const DataContextProvider = ({ children }) => {
   const bookmarkByUser = (post) => {
     return signInUser?.bookmarks?.find((item) => item._id === post._id);
   };
-
-  
 
   const latestHadler = (value) => {
     setSort(value);
@@ -90,26 +84,22 @@ export const DataContextProvider = ({ children }) => {
   const userFollowingList = signInUser?.following.map((item) => item.username);
 
   const sortedPostData = sortedFun();
-  const newSortedPostData = sortedPostData.reduce(
+  const newSortedPostData = sortedPostData?.reduce(
     (acc, curr) =>
-      userFollowingList.includes(curr.username) ||
+      userFollowingList?.includes(curr.username) ||
       curr.username === user.username
         ? [...acc, curr]
         : acc,
     []
   );
 
-  const unfollowHandler = (selectedUser,dataDispatch,token)=>{
-      //fix this
-
-  }
-
-  const userUnfollwHandler = (profileUser,dataDispatch,token)=>{
+  const userUnfollwHandler = (profileUser, dataDispatch, token) => {
     console.log(profileUser);
-    unfollowServices(profileUser,dataDispatch,token);
-    }
+    unfollowServices(profileUser, dataDispatch, token);
+    setFollowing(false);
+  };
 
-    console.log(dataState.post,"fisdf")
+  console.log(dataState.AllUsers, "fisdf");
   return (
     <div>
       <DataContext.Provider
@@ -130,7 +120,9 @@ export const DataContextProvider = ({ children }) => {
           signInUser,
           userFollowingList,
           newSortedPostData,
-          unfollowHandler,userUnfollwHandler
+          userUnfollwHandler,
+          following,
+          setFollowing,
         }}
       >
         {children}

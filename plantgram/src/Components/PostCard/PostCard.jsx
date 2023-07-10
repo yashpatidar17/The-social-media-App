@@ -151,7 +151,7 @@ export const PostCard = ({ propData }) => {
                 alt="content"
                 className="contentpic"
                 style={{
-                  display: post.postImage === undefined ? "none" : "block",
+                  display: post.postImage ===  "" ? "none" : "block",
                 }}
               />
             </Link>
