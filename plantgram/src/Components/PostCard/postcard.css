@@ -154,7 +154,9 @@
 
 
   @media (min-width: 768px){
-
+    .postCard{
+      width: 700px;
+    }
   }
 
   @media (min-width: 1024px){
