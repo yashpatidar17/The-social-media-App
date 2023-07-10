@@ -6,7 +6,6 @@ import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import {
-  createPostService,
   editPostServices,
   getPostData,
   postDeleteService,
@@ -15,13 +14,15 @@ import { AuthContext } from "../../Context/AuthContextProvider";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 import { Link } from "react-router-dom";
+
+import { toast } from 'react-toastify';
+
 export const PostCard = ({ propData }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedPost, setSelectedPost] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatedPost, setUpdatedPost] = useState({});
   const {
-    dataState,
     dataDispatch,
     bookMarkHandler,
     likeHandler,
