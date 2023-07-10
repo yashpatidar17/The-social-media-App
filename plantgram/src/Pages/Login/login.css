@@ -16,8 +16,13 @@
     justify-content:center;
     align-items: center;
     height: 100vh;
-    
 }
+
+.loginImage{
+    display:none;
+}
+
+
 
 .login-heading-container{
     display:flex;
@@ -79,6 +84,11 @@
         height: 450px;
         width: 350px;
     }
+    .loginImage{
+        width: 500px;
+        clip-path: polygon(0% 0%, 16% 2%, 39% 0%, 83% 4%, 100% 0%, 100% 24%, 98% 48%, 100% 75%, 100% 100%, 75% 97%, 45% 100%, 1% 100%, 7% 81%, 0% 56%);
+        
+}
 }
 
 @media (min-width: 1024px){
@@ -86,4 +96,19 @@
         height: 450px;
         width: 350px;
     }
+    .loginImage{
+        display: block;
+        width: 500px;
+        clip-path: polygon(0% 0%, 16% 2%, 39% 0%, 83% 4%, 100% 0%, 100% 24%, 98% 48%, 100% 75%, 100% 100%, 75% 97%, 45% 100%, 1% 100%, 7% 81%, 0% 56%);
+        
+}
+.login{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    background-image: url("https://i.postimg.cc/W1qpMRXH/dudt1.jpg");
+    background-size: cover;
+}
 }

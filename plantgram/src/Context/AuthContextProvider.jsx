@@ -66,8 +66,8 @@ export const AuthContextProvider = ({ children }) => {
     navigate("/", { replace: true });
     setTimeout(() => {
       window.location.reload();
-    }, 1000);
-    toast.success("Log Out Successfully",{ autoClose: 500 });
+    }, 100);
+    toast.success("Log Out Successfully",{ autoClose: 100 });
   };
 
   return (
