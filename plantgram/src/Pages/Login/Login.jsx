@@ -32,6 +32,10 @@ export const Login = () => {
 
   return (
     <div className="login">
+    <div>
+      <img className="loginImage" src="https://i.postimg.cc/nVD725rN/undraw-Social-sharing-re-pvmr-1.png" alt="loginImage"/>
+    </div>
+
     <div className="login-container">
       <div className="login-heading-container">
         <h3>PlantGram</h3>
