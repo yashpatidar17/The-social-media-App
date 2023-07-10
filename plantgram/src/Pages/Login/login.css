@@ -16,6 +16,8 @@
     justify-content:center;
     align-items: center;
     height: 100vh;
+    background-image: url("https://i.postimg.cc/W1qpMRXH/dudt1.jpg");
+    background-size: cover;
 }
 
 .loginImage{
