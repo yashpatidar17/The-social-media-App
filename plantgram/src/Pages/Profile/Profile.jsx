@@ -64,8 +64,6 @@ export const Profile = () => {
 
   const saveProfile = async (event) => {
     event.preventDefault();
-    // Update the user profile data
-    // ...
     await editUserHandler(updatedProfile, token, dataDispatch);
     closeModal();
   };

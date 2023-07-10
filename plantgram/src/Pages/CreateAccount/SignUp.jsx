@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { DataContext } from "../../Context/DataContextProvider";
+import { toast } from 'react-toastify';
 
 export const SignUp = () => {
   const { signupUser } = useContext(AuthContext);
@@ -38,10 +39,10 @@ export const SignUp = () => {
       if (password === confirmPas) {
         signupUser(signUpDetails, navigate, dataDispatch);
       } else {
-        console.log("pass not match");
+        toast.warn("Password Not Match",{ autoClose: 500 });
       }
     } else {
-      console.log("fill all details");
+      toast.warn("Fill All Deatils",{ autoClose: 500 });
     }
   };
 

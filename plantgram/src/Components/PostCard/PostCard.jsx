@@ -15,14 +15,16 @@ import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 import { Link } from "react-router-dom";
 
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 export const PostCard = ({ propData }) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedPost, setSelectedPost] = useState([]);
+  const [selectedPost, setSelectedPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatedPost, setUpdatedPost] = useState({});
+
   const {
+    dataState,
     dataDispatch,
     bookMarkHandler,
     likeHandler,
@@ -30,7 +32,7 @@ export const PostCard = ({ propData }) => {
     likedByUser,
     bookmarkByUser,
     deleteRemoveHandler,
-    unfollowHandler,
+    userUnfollwHandler,
   } = useContext(DataContext);
   const { token, user } = useContext(AuthContext);
 
@@ -38,6 +40,7 @@ export const PostCard = ({ propData }) => {
     setSelectedPost(post);
     setShowDropdown(!showDropdown);
   };
+  console.log(selectedPost, "ghbfoasfnboasljk");
 
   const postDeleteHandler = (_id, dataDispatch, token) => {
     postDeleteService(_id, dataDispatch, token);
@@ -61,7 +64,7 @@ export const PostCard = ({ propData }) => {
     event.preventDefault();
     // Update the user profile data
     // ...
-    await editPostServices(selectedPost._id, updatedPost, dataDispatch, token);
+    await editPostServices(selectedPost?._id, updatedPost, dataDispatch, token);
     closeModal();
     setSelectedPost((prevSelectedPost) => ({
       ...prevSelectedPost,
@@ -72,7 +75,7 @@ export const PostCard = ({ propData }) => {
   const getUpdatedPostData = () => {
     setUpdatedPost({
       ...selectedPost,
-      content: selectedPost.content,
+      content: selectedPost?.content,
     });
   };
 
@@ -81,6 +84,10 @@ export const PostCard = ({ propData }) => {
     getUpdatedPostData();
   }, [selectedPost]);
 
+  const userUnFollowed = dataState?.AllUsers.find(
+    (item) => item.username === selectedPost?.username
+  );
+  // console.log(userUnFollowed,"9oqwegiwujeqghboqwauiehg")
   return (
     <div className="postCard-container">
       {propData?.map((post) => (
@@ -104,15 +111,15 @@ export const PostCard = ({ propData }) => {
               <div>
                 {showDropdown &&
                   selectedPost &&
-                  selectedPost._id === post._id && (
+                  selectedPost?._id === post._id && (
                     <div className="dropdown-menu">
-                      {selectedPost.username === user.username ? (
+                      {selectedPost?.username === user.username ? (
                         <div className="threedorMenu">
                           <button
                             className="threedotButton"
                             onClick={() =>
                               postDeleteHandler(
-                                selectedPost._id,
+                                selectedPost?._id,
                                 dataDispatch,
                                 token
                               )
@@ -132,7 +139,13 @@ export const PostCard = ({ propData }) => {
                         <div>
                           <button
                             className="threedotButton"
-                            onClick={() => unfollowHandler(selectedPost)}
+                            onClick={() =>
+                              userUnfollwHandler(
+                                userUnFollowed,
+                                dataDispatch,
+                                token
+                              )
+                            }
                           >
                             UnFollow
                           </button>
@@ -152,7 +165,7 @@ export const PostCard = ({ propData }) => {
                 alt="content"
                 className="contentpic"
                 style={{
-                  display: post.postImage ===  "" ? "none" : "block",
+                  display: post.postImage === "" ? "none" : "block",
                 }}
               />
             </Link>
@@ -199,7 +212,7 @@ export const PostCard = ({ propData }) => {
         overlayClassName="modal-overlay"
       >
         <img
-          src={selectedPost.postImage}
+          src={selectedPost?.postImage}
           alt="content"
           className="contentpic"
         />

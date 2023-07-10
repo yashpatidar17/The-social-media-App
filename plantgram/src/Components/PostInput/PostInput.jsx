@@ -17,7 +17,7 @@ export const PostInput = () => {
     createPostService(postData, dataDispatch, token);
     postData = { content: "" };
   };
-  console.log("fbjkasbdf");
+  
   return (
     <div>
       <div className="postinput">
