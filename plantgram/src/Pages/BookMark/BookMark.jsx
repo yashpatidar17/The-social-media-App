@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Navbar } from "../../Components/Nav/Navbar";
 import { DataContext } from "../../Context/DataContextProvider";
 
@@ -10,20 +10,13 @@ export const BookMark = () => {
     dataState: { post },
     signInUser,
   } = useContext(DataContext);
-  // const [bookmarkData,setBookMarkData] = useState([])
+
 
   const bookmarkData = post?.filter(({ _id }) =>
   signInUser.bookmarks.map((item) => item._id).includes(_id)
 );
 
-  console.log(bookmarkData, "fklasdfjl", post);
-// const setData = ()=>{
-//   setBookMarkData(signInUser?.bookmarks)
-// }
-//   console.log(signInUser?.bookmarks);
-//   useEffect(()=>{
-//    setData();
-//   },[post])
+
   return (
     <div>
       <Navbar />

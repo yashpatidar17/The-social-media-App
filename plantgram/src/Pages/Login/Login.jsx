@@ -6,7 +6,7 @@ import { useContext, useEffect } from "react";
 
 export const Login = () => {
   const { loginData, setLoginData, loginUser, token } = useContext(AuthContext);
-  console.log(loginData);
+  
   const navigate = useNavigate();
   useEffect(() => {
     loginUser(loginData.username, loginData.password);

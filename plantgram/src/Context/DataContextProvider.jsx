@@ -8,7 +8,7 @@ import {
   unfollowServices,
 } from "../services/postService";
 import { AuthContext } from "./AuthContextProvider";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 const DataInitialState = {
   post: [],
   AllUsers: [],
@@ -33,7 +33,7 @@ export const DataContextProvider = ({ children }) => {
     deleteBookmark(post, dataDispatch, token, user);
   };
 
-  const likeHandler = (post, dataDispatch, token,toast) => {
+  const likeHandler = (post, dataDispatch, token, toast) => {
     dataDispatch({ type: "liked", payload: true });
     getLikePost(post, dataDispatch, token);
   };
@@ -94,12 +94,10 @@ export const DataContextProvider = ({ children }) => {
   );
 
   const userUnfollwHandler = (profileUser, dataDispatch, token) => {
-    console.log(profileUser);
     unfollowServices(profileUser, dataDispatch, token);
     setFollowing(false);
   };
 
-  console.log(dataState.AllUsers, "fisdf");
   return (
     <div>
       <DataContext.Provider
