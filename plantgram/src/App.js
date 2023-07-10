@@ -8,15 +8,14 @@ import { BookMark } from './Pages/BookMark/BookMark';
 import { Explore } from './Pages/Explore/Explore';
 import { Post } from './Pages/Post/Post';
 import { Profile } from './Pages/Profile/Profile';
-import { SideBar } from './Components/SideBar/SideBar';
-import { Navbar } from './Components/Nav/Navbar';
 
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div>
-      {/* <SideBar/> */}
+      <ToastContainer/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<SignUp/>}/>

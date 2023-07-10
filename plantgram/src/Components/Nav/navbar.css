@@ -39,7 +39,7 @@
    .navbar{
     display: flex;
     flex-direction: row;
-    background-color: antiquewhite;
+    background-color: rgb(249, 243, 237);
     justify-content: space-around;
     align-items: center;
     

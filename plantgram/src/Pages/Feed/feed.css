@@ -8,8 +8,14 @@
 .Feed-first{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     
+}
+.home-head{
+    display: flex;
+    color: antiquewhite;
+    align-items:center;
+    justify-content:center;
 }
 
 .feed-card{
@@ -17,6 +23,7 @@
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;  */
+  /* background-color: rgb(71, 68, 65); */
 }
 .Feed >h2{
     color: antiquewhite;

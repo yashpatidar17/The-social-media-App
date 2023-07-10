@@ -55,7 +55,7 @@ export const users = [
     password: "3000",
     bio: "Resting in Peace",
     bookmarks: [],
-    website: "https://github.com/yashpatidar17/The-social-media-App",
+    website: "https://github.com/yashpatidar17",
     profileAvatar: "https://i.postimg.cc/7Y892C2p/download.jpg",
     following: [
       {
@@ -102,7 +102,7 @@ export const users = [
     password: "2000",
     bio: "Depends on mood",
     bookmarks: [],
-    website: "https://github.com/yashpatidar17/The-social-media-App",
+    website: "https://github.com/yashpatidar17",
     profileAvatar: "https://i.postimg.cc/bJBRwgXt/images-1.jpg",
     following: [
       {
@@ -137,7 +137,7 @@ export const users = [
     password: "4000",
     bio: "Turns into green when i am angry",
     bookmarks: [],
-    website: "https://github.com/yashpatidar17/The-social-media-App",
+    website: "https://github.com/yashpatidar17",
     profileAvatar: "https://i.postimg.cc/BndnSGyc/download.jpg",
     following: [
       {

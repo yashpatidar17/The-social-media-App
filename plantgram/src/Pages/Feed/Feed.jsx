@@ -18,7 +18,9 @@ export const Feed = () => {
       <div className="v-nav-explore">
         <Navbar />
       </div>
+      <h1 className="home-head">Home</h1>
       <div className="Feed-first">
+        
         <div className="feed-card">
           <PostInput />
           <Sorting />

@@ -4,9 +4,9 @@
     align-items:center;
     justify-content:center;
     border:1px solid black;
-    height: 60%;
+    height: 70%;
     width: 80%;
-    background-color:#fddfba;
+    background-color: rgb(249, 243, 237);
 
   border-radius: 5px;
 }

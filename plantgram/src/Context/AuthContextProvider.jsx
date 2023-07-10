@@ -1,9 +1,7 @@
 import { createContext, useState } from "react";
-import { loginService } from "../services/loginService";
+import { loginService, signupService } from "../services/loginService";
 import { useNavigate } from "react-router";
-
-
-
+import {toast } from 'react-toastify';
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
@@ -13,10 +11,9 @@ export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorageToken?.token);
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(localStorageUser?.user);
-  const navigate = useNavigate() 
-  // const signInUser = dataState.Allusers.find((item)=> item.username === user.username);
-  // console.log(signInUser,"bjkfbaksdjfba")
-  
+  const navigate = useNavigate();
+
+
   const loginUser = async (username, password) => {
     if (username && password !== "") {
       try {
@@ -31,8 +28,9 @@ export const AuthContextProvider = ({ children }) => {
           );
           setToken(encodedToken);
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
-          
+
           setUser(foundUser);
+          toast.success("Sign In Successfully",{ autoClose: 500 });
         }
       } catch (e) {
         console.log("login error");
@@ -40,18 +38,50 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const signupUser = async (data, navigate, dataDispatch) => {
+    try {
+      const {
+        status,
+        data: { encodedToken, createdUser },
+      } = await signupService(data);
 
-  const logoutHandler = ()=>{
+      if (status === 200 || status === 201) {
+        localStorage.setItem("token", JSON.stringify({ token: encodedToken }));
+        setToken(encodedToken);
+        localStorage.setItem("user", JSON.stringify({ user: createdUser }));
+        setUser(createdUser);
+        console.log(createdUser, "ndoasfoaslhnf");
+        dataDispatch({ type: "add_new_user", payload: createdUser });
+        navigate("/");
+        toast.success("Sign Up Successfully",{ autoClose: 500 });
+      }
+    } catch (e) {
+      console.log(e, "error from signup service");
+    }
+  };
+
+  const logoutHandler = () => {
     localStorage.clear();
     setToken("");
-    navigate("/",{replace : true});
-    setTimeout(()=>{
+    navigate("/", { replace: true });
+    setTimeout(() => {
       window.location.reload();
-    },100)
-  }
-  
+    }, 1000);
+    toast.success("Log Out Successfully",{ autoClose: 500 });
+  };
+
   return (
-    <AuthContext.Provider value={{ loginData, setLoginData,loginUser,token,user,logoutHandler }}>
+    <AuthContext.Provider
+      value={{
+        loginData,
+        setLoginData,
+        loginUser,
+        token,
+        user,
+        logoutHandler,
+        signupUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
